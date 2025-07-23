@@ -6,6 +6,7 @@ from module.logger.logger import logger
 import cv2
 
 from module.ocr.ocr import CommonOCR
+from module.ocr.onnxocr.onnx_paddleocr import ONNXPaddleOcr
 from tasks.base.page import page_main
 from tasks.base.ui import UI
 from tasks.mission.assets.assets_mission import MISSION_CHECK, MISSION_RED_DOT, WORK_FINISHED, WORK
@@ -21,13 +22,14 @@ class Mission(UI):
     def _mission_enter(self):
         self.device.swipe_maatouch([180,322],[1141,314])
         logger.info("left swipe")
-        ocr=CommonOCR()
+        ocr=CommonOCR(MISSION_CHECK)
         timer = Timer(1.5,count=2)
         for _ in self.loop():
-            textbox=ocr.run(self.device.image,include_keywords=['任务集会所','集会所'])
-            if textbox!=None:
+            resultbutton=ocr.matched_ocr(self.device.image,['任务集会所','集会所'])
+            if resultbutton!=None:
+                print(resultbutton)
                 if self.appear(MISSION_RED_DOT):
-                    self.ui_click(textbox)
+                    self.device.click(resultbutton)
                     logger.info("Found Mission")
                     timer.clear()
                     return
@@ -37,19 +39,17 @@ class Mission(UI):
         self.device.swipe_maatouch([1141,314],[180,322])
         timer = Timer(1.5,count=2)
         for _ in self.loop():
-            textbox=ocr.run(self.device.image,include_keywords=['任务集会所','集会所'])
-            if textbox!=None:
-                if self.appear(MISSION_RED_DOT):
-                    self.ui_click(textbox)
+            resultbutton=ocr.matched_ocr(self.device,['任务集会所','集会所'])
+            if resultbutton!=None:
+                print(resultbutton)
+                if not self.appear(MISSION_RED_DOT):
+                    self.device.click(resultbutton)
                     logger.info("Found Mission")
                     timer.clear()
                     return
             if timer.reached():
                 timer.clear()
                 break
-
-
-
 
 
 
