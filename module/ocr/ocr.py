@@ -1,12 +1,15 @@
 import cv2
-from onnxocr.onnx_paddleocr import ONNXPaddleOcr
+
+from module.base.utils import area2corner, corner2area
+from .onnxocr.onnx_paddleocr import ONNXPaddleOcr
 from collections import defaultdict
 
 
 class TextBox:
     def __init__(self, text, box):
         self.text = text
-        self.box = box  # [[x1, y1], [x2, y2], [x3, y3], [x4, y4]]
+        self.box = box
+        self.button=corner2area(box)# [[x1, y1], [x2, y2], [x3, y3], [x4, y4]]
 
     def center_y(self):
         return sum([point[1] for point in self.box]) / 4
@@ -22,6 +25,7 @@ class CommonOCR:
     def __init__(self, ocr_model, conf_threshold=0.5):
         self.ocr_model = ocr_model
         self.conf_threshold = conf_threshold
+
 
     def run(self, img):
         raw_result = self.ocr_model.ocr(img)
@@ -72,7 +76,7 @@ if __name__ == "__main__":
 
     print("✅ 识别文字:")
     for tb in textboxes:
-        print(f"- {tb.text}  坐标: {tb.box}")
+        print(f"- {tb.text}  坐标: {tb.box}  边界值:{tb.button}"  )
 
     print("\n✅ 按行排序:")
     sorted_rows = common_ocr.group_by_rows(textboxes)

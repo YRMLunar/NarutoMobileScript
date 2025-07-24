@@ -1,5 +1,5 @@
 import time
-
+import cv2
 from .predict_system import TextSystem
 from .utils import infer_args as init_args
 from .utils import str2bool, draw_ocr
@@ -26,6 +26,7 @@ class ONNXPaddleOcr(TextSystem):
         super().__init__(params)
 
     def ocr(self, img, det=True, rec=True, cls=True):
+
         if cls == True and self.use_angle_cls == False:
             print(
                 "Since the angle classifier is not initialized, the angle classifier will not be uesd during the forward process"

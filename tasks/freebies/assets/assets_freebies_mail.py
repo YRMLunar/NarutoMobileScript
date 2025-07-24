@@ -80,6 +80,13 @@ MAIL_RED_DOT = ButtonWrapper(
             color=(181, 128, 55),
             button=(38, 253, 83, 282),
         ),
+        Button(
+            file='./assets/share/freebies/mail/MAIL_RED_DOT.3.png',
+            area=(39, 249, 89, 283),
+            search=(19, 229, 109, 303),
+            color=(154, 107, 55),
+            button=(39, 249, 89, 283),
+        ),
     ],
 )
 MAIN_GOTO_MAIL = ButtonWrapper(

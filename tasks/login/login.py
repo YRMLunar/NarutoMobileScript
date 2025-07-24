@@ -2,9 +2,11 @@ from module.base.base import ModuleBase
 from module.base.timer import Timer
 from module.exception import GameNotRunningError
 from module.logger import logger
+from tasks.base.assets.assets_base_page import MAIN_GOTO_CHARACTER
 from tasks.base.page import page_main
 from tasks.base.ui import UI
 from tasks.login.assets.assets_login import *
+from tasks.login.assets.assets_login_popup import GAME_MAIN_ANNOUNCEMENT
 from tasks.login.popup import GameInPopup
 
 
@@ -46,7 +48,7 @@ class Login(UI,GameInPopup):
             # Game client requires at least 5s to start
             # The first few frames might be captured before app_stop(), ignore them
             if startup_timer.reached():
-                if(self.ui_page_appear(page_main) and self.match_template_luma(page_main) and not self.is_game_popup()):
+                if(self.ui_page_appear(page_main) and self.match_template_color(MAIN_GOTO_CHARACTER) and not self.is_game_popup()):
                     logger.info('Login to main confirm')
                     break
                 else:self.handle_game_popup()
@@ -106,7 +108,7 @@ class Login(UI,GameInPopup):
 az=Login('alas',task='Alas')
 
 
-az.image_file = r'C:\Users\刘振洋\Desktop\StarRailCopilot\tasks\login\MuMu12-20250721-132628.png'
+az.image_file = r'C:\Users\刘振洋\Desktop\NarutoScript\tasks\login\MuMu12-20250724-222202.png'
 #print(az.appear(MAIN_GOTO_CHARACTER))
 #print(az.appear(Game_In_Advertise))
-print(az.app_start())
+az.app_start()

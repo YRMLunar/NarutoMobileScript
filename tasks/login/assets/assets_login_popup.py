@@ -13,34 +13,43 @@ Daily_Bonus = ButtonWrapper(
         button=(559, 576, 716, 632),
     ),
 )
-Game_In_Advertise = ButtonWrapper(
-    name='Game_In_Advertise',
+GAME_IN_ADVERTISE = ButtonWrapper(
+    name='GAME_IN_ADVERTISE',
     share=[
         Button(
-            file='./assets/share/login/popup/Game_In_Advertise.png',
-            area=(1191, 12, 1265, 70),
-            search=(1171, 0, 1280, 90),
-            color=(94, 32, 11),
-            button=(1191, 12, 1265, 70),
-        ),
-        Button(
-            file='./assets/share/login/popup/Game_In_Advertise.2.png',
+            file='./assets/share/login/popup/GAME_IN_ADVERTISE.png',
             area=(1183, 9, 1276, 74),
             search=(1163, 0, 1280, 94),
             color=(97, 67, 70),
             button=(1183, 9, 1276, 74),
         ),
+        Button(
+            file='./assets/share/login/popup/GAME_IN_ADVERTISE.2.png',
+            area=(1177, 1, 1280, 79),
+            search=(1157, 0, 1280, 99),
+            color=(44, 15, 6),
+            button=(1177, 1, 1280, 79),
+        ),
     ],
 )
-Game_Main_Announcement = ButtonWrapper(
-    name='Game_Main_Announcement',
-    share=Button(
-        file='./assets/share/login/popup/Game_Main_Announcement.png',
-        area=(1130, 84, 1216, 155),
-        search=(1110, 64, 1236, 175),
-        color=(71, 41, 41),
-        button=(1130, 84, 1216, 155),
-    ),
+GAME_MAIN_ANNOUNCEMENT = ButtonWrapper(
+    name='GAME_MAIN_ANNOUNCEMENT',
+    share=[
+        Button(
+            file='./assets/share/login/popup/GAME_MAIN_ANNOUNCEMENT.png',
+            area=(1130, 84, 1216, 155),
+            search=(1110, 64, 1236, 175),
+            color=(71, 41, 41),
+            button=(1130, 84, 1216, 155),
+        ),
+        Button(
+            file='./assets/share/login/popup/GAME_MAIN_ANNOUNCEMENT.2.png',
+            area=(1007, 58, 1104, 133),
+            search=(987, 38, 1124, 153),
+            color=(69, 50, 57),
+            button=(1007, 58, 1104, 133),
+        ),
+    ],
 )
 RANK_UP = ButtonWrapper(
     name='RANK_UP',

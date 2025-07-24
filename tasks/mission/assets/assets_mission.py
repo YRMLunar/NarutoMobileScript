@@ -3,14 +3,24 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
-MISSION_CHECK = ButtonWrapper(
-    name='MISSION_CHECK',
+MAIN_GOTO_MISSION = ButtonWrapper(
+    name='MAIN_GOTO_MISSION',
     share=Button(
-        file='./assets/share/mission/MISSION_CHECK.png',
+        file='./assets/share/mission/MAIN_GOTO_MISSION.png',
         area=(229, 77, 1100, 600),
         search=(209, 57, 1120, 620),
         color=(135, 153, 116),
         button=(229, 77, 1100, 600),
+    ),
+)
+MISSION_CHECK = ButtonWrapper(
+    name='MISSION_CHECK',
+    share=Button(
+        file='./assets/share/mission/MISSION_CHECK.png',
+        area=(0, 0, 1280, 720),
+        search=(0, 0, 1280, 720),
+        color=(83, 76, 67),
+        button=(0, 0, 1280, 720),
     ),
 )
 MISSION_RED_DOT = ButtonWrapper(
