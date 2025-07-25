@@ -48,9 +48,10 @@ class Login(UI,GameInPopup):
             # Game client requires at least 5s to start
             # The first few frames might be captured before app_stop(), ignore them
             if startup_timer.reached():
-                if(self.ui_page_appear(page_main) and self.match_template_color(MAIN_GOTO_CHARACTER) and not self.is_game_popup()):
-                    logger.info('Login to main confirm')
-                    break
+                if(self.ui_page_appear(page_main)):
+                    if self.handle_game_popup():
+                        logger.info('Login to main confirm')
+                        break
                 else:self.handle_game_popup()
 
             # Watch resource downloading and loading

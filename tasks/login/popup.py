@@ -15,18 +15,20 @@ class GameInPopup(ModuleBase):
         # CN user agreement popup
         timer=Timer(2,count=2)
         for _ in  self.loop():
-            if  self.match_template_color(MAIN_GOTO_CHARACTER):
-                break
-            if self.appear_then_click(GAME_MAIN_ANNOUNCEMENT, interval=1):
+            if self.appear_then_click(GAME_MAIN_ANNOUNCEMENT):
+                timer.reset()
                 continue
-            if self.appear_then_click(GAME_IN_ADVERTISE, interval=1):
+            if self.appear_then_click(GAME_IN_ADVERTISE):
+                timer.reset()
                 continue
-            if self.appear_then_click(Daily_Bonus, interval=1):
+            if self.appear_then_click(Daily_Bonus):
+                timer.reset()
                 continue
-            if self.appear_then_click(RANK_UP, interval=1):
+            if self.appear_then_click(RANK_UP):
+                timer.reset()
                 continue
             if timer.reached():
-                break
+                return True
 
 
     def is_game_popup(self):
@@ -35,15 +37,16 @@ class GameInPopup(ModuleBase):
             bool: If clicked
         """
         # CN user agreement popup
+
         timer=Timer(2,count=2)
         for _ in  self.loop():
-            if self.appear(GAME_MAIN_ANNOUNCEMENT, interval=1):
+            if self.appear(GAME_MAIN_ANNOUNCEMENT):
                 return True
-            if self.appear(GAME_IN_ADVERTISE, interval=1):
+            if self.appear(GAME_IN_ADVERTISE):
                 return True
-            if self.appear(Daily_Bonus, interval=1):
+            if self.appear(Daily_Bonus):
                 return True
-            if self.appear(RANK_UP, interval=1):
+            if self.appear(RANK_UP):
                 return True
             if timer.reached():
                 return False

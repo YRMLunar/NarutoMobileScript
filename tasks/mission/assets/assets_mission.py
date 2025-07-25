@@ -17,10 +17,20 @@ MISSION_CHECK = ButtonWrapper(
     name='MISSION_CHECK',
     share=Button(
         file='./assets/share/mission/MISSION_CHECK.png',
-        area=(0, 0, 1280, 720),
-        search=(0, 0, 1280, 720),
-        color=(83, 76, 67),
-        button=(0, 0, 1280, 720),
+        area=(88, 2, 526, 137),
+        search=(68, 0, 546, 157),
+        color=(142, 90, 44),
+        button=(88, 2, 526, 137),
+    ),
+)
+MISSION_EXIT = ButtonWrapper(
+    name='MISSION_EXIT',
+    share=Button(
+        file='./assets/share/mission/MISSION_EXIT.png',
+        area=(1175, 0, 1279, 77),
+        search=(1155, 0, 1280, 97),
+        color=(93, 58, 39),
+        button=(1175, 0, 1279, 77),
     ),
 )
 MISSION_RED_DOT = ButtonWrapper(
@@ -42,6 +52,36 @@ MISSION_RED_DOT = ButtonWrapper(
         ),
     ],
 )
+MISSION_REWARD = ButtonWrapper(
+    name='MISSION_REWARD',
+    share=Button(
+        file='./assets/share/mission/MISSION_REWARD.png',
+        area=(485, 135, 784, 207),
+        search=(465, 115, 804, 227),
+        color=(141, 66, 17),
+        button=(485, 135, 784, 207),
+    ),
+)
+MISSION_REWARD_CLAIM_ALL = ButtonWrapper(
+    name='MISSION_REWARD_CLAIM_ALL',
+    share=Button(
+        file='./assets/share/mission/MISSION_REWARD_CLAIM_ALL.png',
+        area=(419, 413, 621, 486),
+        search=(399, 393, 641, 506),
+        color=(213, 143, 14),
+        button=(419, 413, 621, 486),
+    ),
+)
+REWARD_CLAIM_DONE = ButtonWrapper(
+    name='REWARD_CLAIM_DONE',
+    share=Button(
+        file='./assets/share/mission/REWARD_CLAIM_DONE.png',
+        area=(578, 141, 727, 183),
+        search=(558, 121, 747, 203),
+        color=(76, 68, 76),
+        button=(578, 141, 727, 183),
+    ),
+)
 WORK = ButtonWrapper(
     name='WORK',
     share=Button(
@@ -54,20 +94,11 @@ WORK = ButtonWrapper(
 )
 WORK_FINISHED = ButtonWrapper(
     name='WORK_FINISHED',
-    share=[
-        Button(
-            file='./assets/share/mission/WORK_FINISHED.png',
-            area=(611, 118, 700, 206),
-            search=(591, 98, 720, 226),
-            color=(58, 59, 56),
-            button=(611, 118, 700, 206),
-        ),
-        Button(
-            file='./assets/share/mission/WORK_FINISHED.2.png',
-            area=(843, 127, 941, 204),
-            search=(823, 107, 961, 224),
-            color=(69, 70, 60),
-            button=(843, 127, 941, 204),
-        ),
-    ],
+    share=Button(
+        file='./assets/share/mission/WORK_FINISHED.png',
+        area=(611, 118, 700, 206),
+        search=(591, 98, 720, 226),
+        color=(58, 59, 56),
+        button=(611, 118, 700, 206),
+    ),
 )

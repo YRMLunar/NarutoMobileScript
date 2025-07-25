@@ -18,19 +18,16 @@ class MailReward(UI):
         self.interval_clear([
             page_main.check_button
         ])
-        timer = Timer(1.5,count=3)
+
         for _ in self.loop():
-            if self.match_template_luma(MAIL_CHECK):
+            if self.appear(MAIL_CHECK):
                 self.wait_until_stable(MAIL_CHECK)
+                logger.info('Mail enter success')
                 return True
 
-            if self.is_in_main(interval=5):
+            if self.is_in_main(interval=2):
                 self.device.click(MAIN_GOTO_MAIL)
                 continue
-            if timer.reached():
-                logger.info('Mail enter timeout')
-                timer.clear()
-                return False
 
 
     def _mail_exit(self):
@@ -48,7 +45,7 @@ class MailReward(UI):
             if self.ui_page_appear(page_main):
                 logger.info('go to page main')
                 break
-            if self.ui_page_appear(page_mail,interval=3):
+            if self.ui_page_appear(page_mail):
                 self.appear_then_click(MAIL_EXIT)
                 logger.info('Mail exit done')
                 continue
@@ -63,19 +60,13 @@ class MailReward(UI):
         Returns:
             CLAIM_ALL or CLAIM_ALL_DONE or None
         """
+        self.ui_ensure(page_mail)
         timeout = Timer(1.5, count=5).start()
         for _ in self.loop():
-            if self.appear_then_click(CLAIM_ALL):
+            if self.appear(CLAIM_ALL):
                 logger.attr('MailClaim', CLAIM_ALL)
-                return CLAIM_ALL_DONE
-            if self.match_template_luma(CLAIM_ALL_DONE):
-                logger.attr('MailClaimDone', CLAIM_ALL_DONE)
-                return CLAIM_ALL_DONE
-
-
-
+                return  CLAIM_ALL
             # CLAIM_ALL_DONE is transparent, use match_template_luma
-
             if timeout.reached():
                 logger.warning('Get MailClaim timeout')
                 return None
@@ -92,17 +83,12 @@ class MailReward(UI):
             if self.match_template_luma(CLAIM_ALL_DONE):
                 break
 
-            if self.appear_then_click(CLAIM_ALL, interval=3):
+            if self.appear_then_click(CLAIM_ALL):
                 continue
 
 
 
-    def _is_mail_red_dot(self):
-        """
-        Pages:
-            in: page_menu
-        """
-        return self.image_color_count(MAIL_RED_DOT, color=(202, 24, 48), count=30, threshold=221)
+
 
     def mail_claim_all(self):
         """
@@ -118,10 +104,10 @@ class MailReward(UI):
         self.ui_ensure(page_main)
 
 
-        MAIL_RED_DOT
-        if not self.appear(MAIL_RED_DOT):
-            logger.info("NOT FOUND MAIL_RED_DOT")
-            return False
+        # #MAIL_RED_DOT
+        # if not self.appear(MAIL_RED_DOT):
+        #     logger.info("NOT FOUND MAIL_RED_DOT")
+        #     return False
 
 
         # claim all
@@ -129,8 +115,8 @@ class MailReward(UI):
             return False
 
         button = self._mail_get_claim_button()
-        if button is CLAIM_ALL_DONE :
-            # self._mail_delete()
+        if button is CLAIM_ALL :
+            self._mail_claim()
             self._mail_exit()
             return True
         else:
@@ -148,8 +134,9 @@ class MailReward(UI):
                 break
 
 az=MailReward('alas',task='Alas')
-# az.image_file=r'C:\Users\刘振洋\Desktop\StarRailCopilot\tasks\freebies\MAIL_EXIT.png'
+az.image_file=r'C:\Users\liuzy\Desktop\NarutoScript\tasks\login\MAIN_GOTO_CHARACTER.png'
 #print(az.ui_page_appear(page_mail))
 # print(az.appear(MAIL_RED_DOT))
+
 az.mail_claim_all()
 

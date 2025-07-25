@@ -6,10 +6,11 @@ from module.logger.logger import logger
 import cv2
 
 
-from module.ocr.onnxocr.onnx_paddleocr import ONNXPaddleOcr,sav2Img
-from tasks.base.page import page_main
+from module.ocr.onnxocr.onnx_paddleocr import ONNXPaddleOcr, sav2Img, TxtBox
+from tasks.base.page import page_main, page_mission
 from tasks.base.ui import UI
-from tasks.mission.assets.assets_mission import MISSION_CHECK, MISSION_RED_DOT, WORK_FINISHED, WORK
+from tasks.mission.assets.assets_mission import MISSION_CHECK, MISSION_RED_DOT, WORK_FINISHED, WORK, \
+    MISSION_REWARD_CLAIM_ALL, MISSION_REWARD, REWARD_CLAIM_DONE
 
 
 class Mission(UI):
@@ -18,6 +19,7 @@ class Mission(UI):
         if not self._mission_enter():
             return False
         self._mission_reward_claim()
+        self._mission_selected()
 
 
     def _mission_enter(self):
@@ -50,24 +52,65 @@ class Mission(UI):
         #         break
 
     def _mission_reward_claim(self):
+        self.ui_ensure(page_mission)
         model = ONNXPaddleOcr(use_angle_cls=True, use_gpu=False)
-
-        print(self.device.image)
+        self.device.screenshot()
         result=model.ocr(self.device.image)
-        print(result)
+        matched_res=model.matchKeys(result,['可领取'])
+        if len(matched_res)<=0 and self.appear(REWARD_CLAIM_DONE):
+            return True
+        x_sorted_res=sorted(matched_res, key=lambda b:b.button[0])
+        print(x_sorted_res)
+        self.device.click(x_sorted_res[0])
+        for _ in self.loop():
+            if self.appear_then_click(MISSION_REWARD_CLAIM_ALL):
+                continue
+            if self.appear_then_click(MISSION_REWARD):
+                continue
+            if self.appear(REWARD_CLAIM_DONE):
+                return True
+            res=model.ocr(self.device.image)
+            if model.matchArea(res,x_sorted_res[0].button):
+                self.device.click(x_sorted_res[0])
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #todo  1.适配TextBox的属性 和 click 要求属性的名字 2. 根据match res 点击领取奖励  3.如何接取任务，任务接取优先级考量
+
+    def _mission_selected(self):
+        self.ui_ensure(page_mission)
+        ocr = ONNXPaddleOcr(use_angle_cls=True, use_gpu=False)
+        result=ocr.ocr(self.device.image)
 
 
 
 az=Mission('alas',task='Alas')
-
+az.image_file=r'C:\Users\liuzy\Desktop\NarutoScript\tasks\mission\MuMu12-20250725-221132.png'
 # #
 # # print(az.appear(MISSION_CHECK))
-az._mission_reward_claim()
+model = ONNXPaddleOcr(use_angle_cls=True, use_gpu=False)
+res=model.ocr(az.device.image)
+print(model.matchKeys(res,['可领取']))
+# az._mission_reward_claim()
 # import os
 # os.chdir(os.path.dirname(os.path.abspath(__file__)))
 #
 # img = cv2.imread('./1.jpg')
 # rs=model.ocr(img)
 # print(rs)
+

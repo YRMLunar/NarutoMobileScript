@@ -2,6 +2,7 @@ import traceback
 
 from tasks.base.assets.assets_base_page import *
 from tasks.freebies.assets.assets_freebies_mail import MAIL_EXIT
+from tasks.mission.assets.assets_mission import MISSION_EXIT, MISSION_CHECK
 
 
 class Page:
@@ -75,4 +76,7 @@ page_main=Page(MAIN_GOTO_CHARACTER)
 page_mail=Page(MAIL_CHECK)
 page_mail.link(MAIL_EXIT,destination=page_main)
 page_main.link(MAIL_CHECK,destination=page_mail)
-
+#Mission
+page_mission=Page(MISSION_CHECK)
+page_main.link(MISSION_CHECK,destination=page_mission)
+page_mission.link(MISSION_EXIT,destination=page_main)
