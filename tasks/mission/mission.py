@@ -90,7 +90,7 @@ class Mission(UI):
 
 
 
-        #todo  1.适配TextBox的属性 和 click 要求属性的名字 2. 根据match res 点击领取奖励  3.如何接取任务，任务接取优先级考量
+        #todo  2. 根据match res 点击领取奖励  还没测试  3.如何接取任务，任务接取优先级考量 如何预设优先级，如何加载优先级，如何选择
 
     def _mission_selected(self):
         self.ui_ensure(page_mission)
