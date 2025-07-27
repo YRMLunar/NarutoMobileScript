@@ -65,9 +65,9 @@ class Resource:
 def release_resources(next_task=''):
     # Release all OCR models
     # det models take 400MB
-    if not next_task:
-        from module.ocr.models import OCR_MODEL
-        OCR_MODEL.resource_release()
+    # if not next_task:
+    #     from module.ocr.models import OCR_MODEL
+    #     OCR_MODEL.resource_release()
 
     # Release assets cache
     # module.ui has about 80 assets and takes about 3MB

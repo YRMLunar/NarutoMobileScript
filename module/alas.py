@@ -61,16 +61,16 @@ class AzurLaneAutoScript:
             exit(1)
 
     def restart(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     def start(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     def stop(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     def goto_main(self):
-        raise NotImplemented
+        raise NotImplementedError
 
     def run(self, command):
         try:

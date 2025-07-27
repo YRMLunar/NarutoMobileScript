@@ -7,6 +7,7 @@ from .utils import infer_args as init_args
 from .utils import str2bool, draw_ocr
 import argparse
 import sys
+from module.base.decorator import cached_property, del_cached_property
 class TxtBox:
     def __init__(self,button,txt,threadhold,time=None,):
         self.area=corner2area(button)
@@ -35,7 +36,34 @@ class ONNXPaddleOcr(TextSystem):
         # 初始化模型
         super().__init__(params)
 
+    def resource_release(self):
+        """
+        释放OCR模型占用的资源
+        """
+        # 释放文本检测器资源
+        if hasattr(self, 'text_detector') and self.text_detector is not None:
+            if hasattr(self.text_detector, 'predictor'):
+                del self.text_detector.predictor
+            del self.text_detector
+            self.text_detector = None
 
+            # 释放文本识别器资源
+        if hasattr(self, 'text_recognizer') and self.text_recognizer is not None:
+            if hasattr(self.text_recognizer, 'predictor'):
+                del self.text_recognizer.predictor
+            del self.text_recognizer
+            self.text_recognizer = None
+
+            # 释放角度分类器资源
+        if hasattr(self, 'text_classifier') and self.text_classifier is not None:
+            if hasattr(self.text_classifier, 'predictor'):
+                del self.text_classifier.predictor
+            del self.text_classifier
+            self.text_classifier = None
+
+            # 强制垃圾回收
+        import gc
+        gc.collect()
     def ocr(self, img, det=True, rec=True, cls=True):
 
         if cls == True and self.use_angle_cls == False:
@@ -106,7 +134,22 @@ class ONNXPaddleOcr(TextSystem):
             if re.search(pattern,box.txt):
                 boxes_matched_time.append(box)
         return boxes_matched_time
+# 创建全局OCR模型实例
+class CustomOcrModel:
+    def __init__(self):
+        self._model = None
 
+    @cached_property
+    def model(self):
+        return ONNXPaddleOcr(use_angle_cls=True, use_gpu=False)
+
+    def resource_release(self):
+        """释放OCR模型资源"""
+        if hasattr(self, '_model') and self._model is not None:
+            self._model.resource_release()
+        del_cached_property(self, 'model')
+    # 全局OCR模型实例
+CUSTOM_OCR_MODEL = CustomOcrModel()
 def resultToBox(result):
     """
     :param result: ocr method result

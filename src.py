@@ -28,7 +28,16 @@ class StarRailCopilot(AzurLaneAutoScript):
         from tasks.freebies.mail import MailReward
         MailReward(self.config,device=self.device).mail_claim_all()
 
-
+    def goto_main(self):
+        from tasks.login.login import Login
+        from tasks.base.ui import UI
+        if self.device.app_is_running():
+            logger.info('App is already running, goto main page')
+            UI(self.config, device=self.device).ui_goto_main()
+        else:
+            logger.info('App is not running, start app and goto main page')
+            Login(self.config, device=self.device).app_start()
+            UI(self.config, device=self.device).ui_goto_main()
 
     def error_postprocess(self):
         # Exit cloud game to reduce extra fee
