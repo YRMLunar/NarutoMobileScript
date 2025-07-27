@@ -1,6 +1,6 @@
 import time
 import cv2
-
+import re
 from module.base.utils import area2corner, corner2area, area_in_area
 from .predict_system import TextSystem
 from .utils import infer_args as init_args
@@ -8,13 +8,15 @@ from .utils import str2bool, draw_ocr
 import argparse
 import sys
 class TxtBox:
-    def __init__(self,button,txt,threadhold):
+    def __init__(self,button,txt,threadhold,time=None,):
+        self.area=corner2area(button)
         self.button=corner2area(button)
         self.txt=txt
+        self.time=time
         self.threadhold=threadhold
     def __repr__(self):
         """定义对象的字符串表示形式"""
-        return f"TxtBox(txt='{self.txt}', conf={self.threadhold:.4f}, area={self.button})"
+        return f"TxtBox(txt='{self.txt}', conf={self.threadhold:.4f}, area={self.area}， button={self.button}， time={self.time})"
 
 
 class ONNXPaddleOcr(TextSystem):
@@ -32,6 +34,7 @@ class ONNXPaddleOcr(TextSystem):
 
         # 初始化模型
         super().__init__(params)
+
 
     def ocr(self, img, det=True, rec=True, cls=True):
 
@@ -75,6 +78,8 @@ class ONNXPaddleOcr(TextSystem):
         :param keys: keys to filter ocr results
         :return:
         """
+        if not isinstance(keys, list):
+            keys = [keys]
         boxes_matched_keys = []
         if not boxes  or not keys :
             return boxes_matched_keys
@@ -92,6 +97,16 @@ class ONNXPaddleOcr(TextSystem):
             if area_in_area(box.button,area):
                 matched_boxes.append(box)
         return matched_boxes
+    def matchTime(self,boxes):
+        boxes_matched_time=[]
+        if not boxes:
+            return boxes_matched_time
+        pattern=r'(0?[0-9]|1[0-9]|2[0-3])时([0-5]?[0-9])分'
+        for box in boxes:
+            if re.search(pattern,box.txt):
+                boxes_matched_time.append(box)
+        return boxes_matched_time
+
 def resultToBox(result):
     """
     :param result: ocr method result
@@ -107,7 +122,6 @@ def resultToBox(result):
         box.append(TxtBox(button=area,txt=txt[0],threadhold=txt[1]))
 
     return box
-
 
 
 def sav2Img(org_img, result, name="draw_ocr.jpg"):

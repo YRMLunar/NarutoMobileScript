@@ -10,7 +10,8 @@
         "type": "select",
         "value": "android",
         "option": [
-          "android"
+          "android",
+          "cloud_android"
         ]
       },
       "PackageName": {
@@ -19,7 +20,6 @@
         "option": [
           "auto",
           "CN-Official"
-
         ]
       },
       "GameLanguage": {
@@ -171,6 +171,33 @@
       }
     }
   },
+  "Mission": {
+    "Scheduler": {
+      "Enable": {
+        "type": "checkbox",
+        "value": false,
+        "option": [
+          true,
+          false
+        ]
+      },
+      "NextRun": {
+        "type": "datetime",
+        "value": "2020-01-01 00:00:00",
+        "validate": "datetime"
+      },
+      "Command": {
+        "type": "input",
+        "value": "Mission",
+        "display": "hide"
+      },
+      "ServerUpdate": {
+        "type": "input",
+        "value": "04:00",
+        "display": "hide"
+      }
+    }
+  },
   "Freebies": {
     "Scheduler": {
       "Enable": {
@@ -196,17 +223,9 @@
         "value": "04:00",
         "display": "hide"
       }
-    },
-    "Freebies": {
-
-      "MailReward": {
-        "type": "checkbox",
-        "value": true
     }
-  }
-
-},
-  "Mission": {
+  },
+  "ZhaoCai": {
     "Scheduler": {
       "Enable": {
         "type": "checkbox",
@@ -223,7 +242,7 @@
       },
       "Command": {
         "type": "input",
-        "value": "Freebies",
+        "value": "ZhaoCai",
         "display": "hide"
       },
       "ServerUpdate": {
@@ -231,6 +250,6 @@
         "value": "04:00",
         "display": "hide"
       }
-    }}
+    }
   }
-
+}

@@ -7,10 +7,6 @@
     "Daily": {
       "name": "每日",
       "help": ""
-    },
-    "Tool": {
-      "name": "工具",
-      "help": ""
     }
   },
   "Task": {
@@ -22,23 +18,16 @@
       "name": "异常处理",
       "help": ""
     },
+    "Mission": {
+      "name": "任务集会所",
+      "help": ""
+    },
     "Freebies": {
       "name": "白嫖奖励",
       "help": ""
     },
-    "Mission": {
-      "name": "任务集会所",
-      "help": ""
-    }
-  },
-  "Freebies": {
-
-    "_info": {
-      "name": "白嫖奖励",
-      "help": ""
-    },
-    "MailReward": {
-      "name": "领取邮件",
+    "ZhaoCai": {
+      "name": "招财",
       "help": ""
     }
   },
@@ -85,12 +74,7 @@
       "name": "游戏服务器",
       "help": "无法区分国际服的不同地区，请手动选择服务器",
       "auto": "自动检测",
-      "CN-Official": "[国服]-官服",
-      "CN-Bilibili": "[国服]-B服 ",
-      "OVERSEA-America": "[国际服]-美洲",
-      "OVERSEA-Asia": "[国际服]-亚洲",
-      "OVERSEA-Europe": "[国际服]-欧洲",
-      "OVERSEA-TWHKMO": "[国际服]-港澳台"
+      "CN-Official": "[国服]-官服"
     },
     "GameLanguage": {
       "name": "游戏内文本语言",
@@ -205,6 +189,16 @@
       "goto_main": "前往主界面",
       "close_game": "关闭游戏",
       "close_emulator": "关闭模拟器"
+    }
+  },
+  "Freebies": {
+    "_info": {
+      "name": "白嫖奖励",
+      "help": ""
+    },
+    "MailReward": {
+      "name": "领取邮件",
+      "help": ""
     }
   },
   "Gui": {

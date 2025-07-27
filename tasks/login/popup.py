@@ -13,7 +13,7 @@ class GameInPopup(ModuleBase):
             bool: If clicked
         """
         # CN user agreement popup
-        timer=Timer(2,count=2)
+        timer=Timer(4,count=2)
         for _ in  self.loop():
             if self.appear_then_click(GAME_MAIN_ANNOUNCEMENT):
                 timer.reset()

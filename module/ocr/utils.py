@@ -1,6 +1,6 @@
 import itertools
 
-from module.ocr.boxed import BoxedResult
+
 
 from module.base.utils import area_center, area_in_area, area_offset
 
@@ -45,74 +45,74 @@ def _merge_area(area1, area2):
     return min(xa1, xb1), min(ya1, yb1), max(xa2, xb2), max(ya2, yb2)
 
 
-def _merge_boxed_result(left: BoxedResult, right: BoxedResult) -> BoxedResult:
-    left.box = _merge_area(left.box, right.box)
-    left.ocr_text = left.ocr_text + right.ocr_text
-    return left
-
-
-def merge_result_button(
-        results: list[BoxedResult],
-        left_keyword: str,
-        right_keyword: str,
-        merged_text: str
-) -> list[BoxedResult]:
-    """
-    Args:
-        results:
-        left_keyword:
-        right_keyword:
-        merged_text:
-    """
-    left = None
-    right = None
-    for result in results:
-        if left_keyword in result.ocr_text:
-            left = result
-        elif right_keyword in result.ocr_text:
-            right = result
-
-    if left is not None:
-        if right is not None:
-            results.remove(right)
-            left.box = _merge_area(left.box, right.box)
-            left.ocr_text = merged_text
-        else:
-            left.ocr_text = merged_text
-    else:
-        if right is not None:
-            right.ocr_text = merged_text
-        else:
-            pass
-    return results
-
-
-def merge_buttons(buttons: list[BoxedResult], thres_x=20, thres_y=20) -> list[BoxedResult]:
-    """
-    Args:
-        buttons:
-        thres_x: Merge results with horizontal box distance <= `thres_x`
-        thres_y: Merge results with vertical box distance <= `thres_y`
-
-    Returns:
-
-    """
-    if thres_x <= 0 and thres_y <= 0:
-        return buttons
-
-    dic_button = {button.box: button for button in buttons}
-    set_merged = set()
-    for left, right in itertools.combinations(dic_button.items(), 2):
-        left_box, left = left
-        right_box, right = right
-        if area_cross_area(left.box, right.box, thres_x=thres_x, thres_y=thres_y):
-            left = _merge_boxed_result(left, right)
-            dic_button[left_box] = left
-            dic_button[right_box] = left
-            set_merged.add(right_box)
-
-    return [button for box, button in dic_button.items() if box not in set_merged]
-
+# def _merge_boxed_result(left: BoxedResult, right: BoxedResult) -> BoxedResult:
+#     left.box = _merge_area(left.box, right.box)
+#     left.ocr_text = left.ocr_text + right.ocr_text
+#     return left
+#
+#
+# def merge_result_button(
+#         results: list[BoxedResult],
+#         left_keyword: str,
+#         right_keyword: str,
+#         merged_text: str
+# ) -> list[BoxedResult]:
+#     """
+#     Args:
+#         results:
+#         left_keyword:
+#         right_keyword:
+#         merged_text:
+#     """
+#     left = None
+#     right = None
+#     for result in results:
+#         if left_keyword in result.ocr_text:
+#             left = result
+#         elif right_keyword in result.ocr_text:
+#             right = result
+#
+#     if left is not None:
+#         if right is not None:
+#             results.remove(right)
+#             left.box = _merge_area(left.box, right.box)
+#             left.ocr_text = merged_text
+#         else:
+#             left.ocr_text = merged_text
+#     else:
+#         if right is not None:
+#             right.ocr_text = merged_text
+#         else:
+#             pass
+#     return results
+#
+#
+# def merge_buttons(buttons: list[BoxedResult], thres_x=20, thres_y=20) -> list[BoxedResult]:
+#     """
+#     Args:
+#         buttons:
+#         thres_x: Merge results with horizontal box distance <= `thres_x`
+#         thres_y: Merge results with vertical box distance <= `thres_y`
+#
+#     Returns:
+#
+#     """
+#     if thres_x <= 0 and thres_y <= 0:
+#         return buttons
+#
+#     dic_button = {button.box: button for button in buttons}
+#     set_merged = set()
+#     for left, right in itertools.combinations(dic_button.items(), 2):
+#         left_box, left = left
+#         right_box, right = right
+#         if area_cross_area(left.box, right.box, thres_x=thres_x, thres_y=thres_y):
+#             left = _merge_boxed_result(left, right)
+#             dic_button[left_box] = left
+#             dic_button[right_box] = left
+#             set_merged.add(right_box)
+#
+#     return [button for box, button in dic_button.items() if box not in set_merged]
+#
 
 # def pair_buttons(
 #         group1: list["OcrResultButton"],

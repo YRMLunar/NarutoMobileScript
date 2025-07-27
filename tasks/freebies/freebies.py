@@ -10,7 +10,7 @@ class Freebies(ModuleBase):
         """
         Run all freebie tasks
         """
-        if self.config.Freebies_SupportReward:
+        if self.config.D:
             logger.hr('Support Reward', level=1)
             SupportReward(config=self.config, device=self.device).run()
 

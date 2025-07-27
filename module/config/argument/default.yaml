@@ -25,6 +25,9 @@ Assignment:
 Freebies:
   Scheduler:
     Enable: true
+ZhaoCai:
+  Scheduler:
+    Enable: true
 
 # ==================== Weekly ====================
 

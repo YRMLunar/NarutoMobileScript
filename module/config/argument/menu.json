@@ -12,15 +12,8 @@
     "page": "setting",
     "tasks": [
       "Mission",
-      "Freebies"
-    ]
-  },
-
-  "Tool": {
-    "menu": "list",
-    "page": "tool",
-    "tasks": [
-
+      "Freebies",
+      "ZhaoCai"
     ]
   }
 }

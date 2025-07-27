@@ -237,6 +237,7 @@ def corner2area(corner):
     Returns:
         np.ndarray: (x1, y1, x2, y2)
     """
+
     x, y = np.array(corner).T
     return np.rint([np.min(x), np.min(y), np.max(x), np.max(y)]).astype(int)
 
