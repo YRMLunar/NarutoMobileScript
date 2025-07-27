@@ -91,11 +91,23 @@ Optimization:
 
 # ==================== Daily ====================
 
-Mission: true
+Mission:
+
 
 Freebies:
-  MailReward: true
-ZhaoCai: true
+  FriendGifts:
+    type: checkbox
+    value:  false
+  DailyShare:
+    type: checkbox
+    value: false
+  MailReward:
+    type: checkbox
+    value: false
+ZhaoCai:
+  ZhaoCaiFree:
+    type: checkbox
+    value:  false
 # ==================== Rogue ====================
 
 

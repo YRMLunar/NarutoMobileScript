@@ -199,7 +199,26 @@
     "MailReward": {
       "name": "领取邮件",
       "help": ""
+    },
+    "DailyShare": {
+      "name": "每日分享",
+      "help": ""
+    },
+    "FriendGifts": {
+      "name": "赠送体力",
+      "help": ""
     }
+  },
+  "ZhaoCai": {
+    "_info": {
+      "name": "招财",
+      "help": ""
+    },
+    "ZhaoCaiFree": {
+      "name": "每日免费招财",
+      "help": ""
+    },
+
   },
   "Gui": {
     "Aside": {
