@@ -47,7 +47,6 @@ jobs:
         run: npm run build
 
       - name: Package and release
-        working-directory: webapp
         uses: nick-fields/retry@v2
         with:
           timeout_minutes: 15
@@ -55,6 +54,8 @@ jobs:
           retry_wait_seconds: 15
           retry_on: error
           shell: 'bash'
-          command: npx --no-install electron-builder --config .electron-builder.config.js --publish ${{ github.event_name == 'push' && github.ref_name == 'main' && 'always' || 'never' }}
+          command: |
+            cd webapp  
+            npx --no-install electron-builder --config .electron-builder.config.js --publish ${{ github.event_name == 'push' && github.ref_name == 'main' && 'always' || 'never' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
