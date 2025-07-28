@@ -14,19 +14,11 @@ concurrency:
   group: webapp-release-${{ github.ref }}
   cancel-in-progress: true
 
+defaults:
+  run:
+    shell: 'bash'
+
 jobs:
-  webapp_release:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Call webapp release workflow
-        uses: ./.github/workflows/webapp-release-delegate.yml
-        with:
-          dry-run: ${{ github.event_name != 'push' || github.ref_name != 'main' }}
-
-  # 或者直接内联 webapp 的构建步骤
   webapp_build:
     strategy:
       fail-fast: true
