@@ -1,157 +1,62 @@
-name: build-installers-on-release
+name: Release Full Build
 
 on:
-  release:
-    types: [published]
-  workflow_dispatch:
-    inputs:
-      version:
-        description: version, e.g. 0.5.7
-        required: false
-      tag:
-        description: tag, e.g. v2025.03.04
-        required: false
+  push:
+    tags:
+      - 'v*'  # 当推送带有 v 前缀的标签时触发，如 v1.0.0
 
 permissions:
-  contents: write
+  contents: write  # 允许工作流创建发布和上传资产
 
 jobs:
-  build:
-    runs-on: windows-latest
-    env:
-      EVT_TAG:       ${{ github.event.release.tag_name }}
-      EVT_TITLE:     ${{ github.event.release.name }}
-      INP_VERSION:   ${{ inputs.version }}
-      INP_TAG:       ${{ inputs.tag }}
-      APPNAME:       StarRailCopilot
-      ISCC_PATH:     'C:\Program Files (x86)\Inno Setup 6\ISCC.exe'
+  build-and-release:
+    runs-on: windows-latest  # 使用 Windows 环境以兼容 7-Zip
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: resolve-vars
-        id: vars
-        shell: bash
-        run: |
-          VERSION="$INP_VERSION"
-          if [ -z "$VERSION" ] && [ -n "$EVT_TITLE" ]; then
-            VERSION=$(echo "$EVT_TITLE" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -n1)
-          fi
-          if [ -z "$VERSION" ] && [ -n "$EVT_TAG" ]; then
-            VERSION=$(echo "$EVT_TAG" | grep -oE '[0-9]+\.[0-9]+\.[0-9]+' | head -n1)
-          fi
-          if [ -z "$VERSION" ]; then
-            echo "::error::missing semantic version"
-            exit 1
-          fi
-          TAG="$INP_TAG"
-          if [ -z "$TAG" ]; then
-            if [ -n "$EVT_TAG" ]; then
-              TAG="$EVT_TAG"
-            else
-              TAG="v$VERSION"
-            fi
-          fi
-          echo "VERSION=$VERSION"   >> "$GITHUB_ENV"
-          echo "RELEASE_TAG=$TAG"   >> "$GITHUB_ENV"
-
-      - name: install-tools
-        run: choco install -y innosetup 7zip.commandline
-
-      - name: download-assets
-        shell: pwsh
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if (Test-Path assets) { Remove-Item assets -Recurse -Force }
-          New-Item -ItemType Directory -Path assets | Out-Null
-
-          gh release download $env:RELEASE_TAG --pattern "*_full*.7z" --dir assets
-
-      - name: download-7zip-sfx
-        shell: pwsh
-        run: |
-          # Download 7-Zip SFX modules
-          Invoke-WebRequest -Uri "https://www.7-zip.org/a/7z2408-extra.7z" -OutFile "7z-extra.7z"
-          7z x 7z-extra.7z -o"7z-sfx"
-
-      - name: extract-en
-        run: 7z x "assets\${{ env.APPNAME }}_*_full.7z"   -o"en"
-
-      - name: extract-cn
-        run: 7z x "assets\${{ env.APPNAME }}_*_fullcn.7z" -o"cn"
-
-      - name: create-sfx-archives-en
-        shell: pwsh
-        run: |
-          @'
-          ;!@Install@!UTF-8!
-          Progress="no"
-          GUIMode="2"
-          ExtractDialogWidth=0
-          ExtractDialogHeight=0
-          ;!@InstallEnd@!
-          '@ | Out-File -Encoding UTF8 "sfx-config.txt"
-
-          $largeFolders = @("toolkit", "locales", "resources", "deploy")
-          
-          foreach ($folder in $largeFolders) {
-            if (Test-Path "en\StarRailCopilot\$folder") {
-              Write-Host "Creating SFX for $folder..."
-              & 7z a -t7z -mx=5 -mmt=on "en\$folder.7z" "en\StarRailCopilot\$folder\*" -r
-              Copy-Item "7z-sfx\7zSD.sfx" "en\$folder.exe"
-              cmd /c copy /b "en\$folder.exe" + "sfx-config.txt" + "en\$folder.7z" "en\$folder.exe"
-              Remove-Item "en\StarRailCopilot\$folder" -Recurse -Force
-              Remove-Item "en\$folder.7z"
-            }
-          }
-
-      - name: create-sfx-archives-cn
-        shell: pwsh
-        run: |
-          $largeFolders = @("toolkit", "locales", "resources", "deploy")
-          
-          foreach ($folder in $largeFolders) {
-            if (Test-Path "cn\StarRailCopilot\$folder") {
-              Write-Host "Creating SFX for $folder..."
-              & 7z a -t7z -mx=5 -mmt=on "cn\$folder.7z" "cn\StarRailCopilot\$folder\*" -r
-              Copy-Item "7z-sfx\7zSD.sfx" "cn\$folder.exe"
-              cmd /c copy /b "cn\$folder.exe" + "sfx-config.txt" + "cn\$folder.7z" "cn\$folder.exe"
-              Remove-Item "cn\StarRailCopilot\$folder" -Recurse -Force
-              Remove-Item "cn\$folder.7z"
-            }
-          }
-
-      - name: compile-en
-        shell: pwsh
-        run: |
-          Copy-Item "installer\setup_en_sfx.iss" "en\setup.iss" -ErrorAction SilentlyContinue
-          if (!(Test-Path "en\setup.iss")) {
-            Write-Host "Creating default setup_en_sfx.iss in installer folder..."
-            New-Item -ItemType Directory -Path "installer" -Force | Out-Null
-            Copy-Item "installer\setup_en.iss" "installer\setup_en_sfx.iss" -Force
-            Copy-Item "installer\setup_en_sfx.iss" "en\setup.iss"
-          }
-          & "$env:ISCC_PATH" /DAppVersion=$env:VERSION /Odist "en\setup.iss"
-
-      - name: compile-cn
-        shell: pwsh
-        run: |
-          Copy-Item 'installer\setup_cn_sfx.iss' 'cn\setup.iss' -ErrorAction SilentlyContinue
-          if (!(Test-Path "cn\setup.iss")) {
-            Write-Host "Creating default setup_cn_sfx.iss in installer folder..."
-            New-Item -ItemType Directory -Path "installer" -Force | Out-Null
-            Copy-Item "installer\setup_cn.iss" "installer\setup_cn_sfx.iss" -Force
-            Copy-Item 'installer\setup_cn_sfx.iss' 'cn\setup.iss'
-          }
-          Copy-Item 'installer\Languages' -Recurse 'cn\Languages'
-          & "$env:ISCC_PATH" /DAppVersion=$env:VERSION /Odist 'cn\setup.iss'
-
-      - name: upload-installers
-        uses: softprops/action-gh-release@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          tag_name: ${{ env.RELEASE_TAG }}
-          files: |
-            dist/StarRailCopilot-Setup-${{ env.VERSION }}.exe
-            dist/StarRailCopilot-Setup-${{ env.VERSION }}-cn.exe
-          fail_on_unmatched_files: true
+          node-version: 16  # 根据项目需求选择 Node 版本
+
+      - name: Install dependencies
+        run: npm ci  # 安装项目依赖
+
+      - name: Build project
+        run: npm run build  # 执行项目构建命令
+
+      - name: Install 7-Zip
+        run: choco install -y 7zip.commandline  # 安装 7-Zip
+
+      - name: Create full.7z archive
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}" -replace '^v', ''  # 从标签名提取版本号
+          $appName = "NarutoScript"
+          $archiveName = "${appName}_${version}_full.7z"
+          
+          # 创建包含完整构建的目录
+          mkdir -p dist/full-build
+          Copy-Item -Path "build/*" -Destination "dist/full-build/" -Recurse
+          
+          # 使用 7-Zip 创建压缩包
+          7z a "$archiveName" "dist/full-build/*" -t7z -mx=9  # -mx=9 表示最高压缩级别
+
+      - name: Create GitHub release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+
+      - name: Upload full.7z to release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ env.APPNAME }}_${{ env.VERSION }}_full.7z
+          asset_name: ${{ env.APPNAME }}_${{ env.VERSION }}_full.7z
+          asset_content_type: application/x-7z-compressed
