@@ -21,7 +21,7 @@ defaults:
 jobs:
   webapp_build:
     strategy:
-      fail-fast: false  # 改为 false，避免一个平台失败影响其他平台
+      fail-fast: false
       matrix:
         os: [ macos-latest, ubuntu-latest, windows-latest ]
 
@@ -52,7 +52,8 @@ jobs:
           retry_wait_seconds: 30
           command: |
             cd webapp  
-            npm ci --legacy-peer-deps
+            rm -f package-lock.json  
+            npm install --legacy-peer-deps
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
