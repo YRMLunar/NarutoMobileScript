@@ -3,6 +3,7 @@ import operator
 import threading
 from datetime import datetime, timedelta
 
+from module.config.utils import ensure_time, get_server_next_update, nearest_future
 import pywebio
 
 from module.base.decorator import cached_property, del_cached_property
@@ -129,7 +130,7 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
     def load(self):
         self.data = self.read_file(self.config_name)
         self.config_override()
-
+        print(self.data)
         for path, value in self.modified.items():
             deep_set(self.data, keys=path, value=value)
 
@@ -215,11 +216,15 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
             now -= self.hoarding
         for func in self.data.values():
             func = Function(func)
+
             if not func.enable:
+
                 continue
             if not isinstance(func.next_run, datetime):
+
                 error.append(func)
             elif func.next_run < now:
+
                 pending.append(func)
             else:
                 waiting.append(func)
@@ -228,12 +233,14 @@ class AzurLaneConfig(ConfigUpdater, ManualConfig, GeneratedConfig, ConfigWatcher
         f.load(self.SCHEDULER_PRIORITY)
         if pending:
             pending = f.apply(pending)
+
         if waiting:
             waiting = f.apply(waiting)
             waiting = sorted(waiting, key=operator.attrgetter("next_run"))
         if error:
             pending = error + pending
-
+        print(pending)
+        print(waiting)
         self.pending_task = pending
         self.waiting_task = waiting
 
@@ -616,3 +623,5 @@ class MultiSetWrapper:
         if not self.in_wrapper:
             self.main.update()
             self.main.auto_update = True
+az=AzurLaneConfig('alas',task='Alas')
+az.get_next_task()

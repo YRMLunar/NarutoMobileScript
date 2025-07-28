@@ -3,33 +3,43 @@ from module.base.button import Button, ButtonWrapper
 # This file was auto-generated, do not modify it manually. To generate:
 # ``` python -m dev_tools.button_extract ```
 
-MAIL_CHECK = ButtonWrapper(
-    name='MAIL_CHECK',
-    share=Button(
-        file='./assets/share/base/page/MAIL_CHECK.png',
-        area=(143, 59, 300, 157),
-        search=(123, 39, 320, 177),
-        color=(157, 95, 36),
-        button=(143, 59, 300, 157),
-    ),
-)
 MAIN_GOTO_CHARACTER = ButtonWrapper(
     name='MAIN_GOTO_CHARACTER',
     share=Button(
         file='./assets/share/base/page/MAIN_GOTO_CHARACTER.png',
-        area=(35, 633, 91, 668),
-        search=(15, 613, 111, 688),
-        color=(129, 140, 149),
-        button=(35, 633, 91, 668),
+        area=(26, 620, 106, 709),
+        search=(6, 600, 126, 720),
+        color=(87, 94, 99),
+        button=(26, 620, 106, 709),
+    ),
+)
+MAIN_GOTO_FRIEND_PANEL = ButtonWrapper(
+    name='MAIN_GOTO_FRIEND_PANEL',
+    share=Button(
+        file='./assets/share/base/page/MAIN_GOTO_FRIEND_PANEL.png',
+        area=(33, 194, 81, 239),
+        search=(13, 174, 101, 259),
+        color=(77, 127, 155),
+        button=(33, 194, 81, 239),
     ),
 )
 MAIN_GOTO_MAIL = ButtonWrapper(
     name='MAIN_GOTO_MAIL',
     share=Button(
         file='./assets/share/base/page/MAIN_GOTO_MAIL.png',
-        area=(36, 259, 80, 298),
-        search=(16, 239, 100, 318),
-        color=(184, 146, 43),
-        button=(36, 259, 80, 298),
+        area=(25, 253, 90, 307),
+        search=(5, 233, 110, 327),
+        color=(162, 155, 86),
+        button=(25, 253, 90, 307),
+    ),
+)
+MAIN_GOTO_PANEL = ButtonWrapper(
+    name='MAIN_GOTO_PANEL',
+    share=Button(
+        file='./assets/share/base/page/MAIN_GOTO_PANEL.png',
+        area=(66, 14, 120, 84),
+        search=(46, 0, 140, 104),
+        color=(173, 141, 118),
+        button=(66, 14, 120, 84),
     ),
 )

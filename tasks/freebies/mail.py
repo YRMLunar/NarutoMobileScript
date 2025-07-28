@@ -1,7 +1,8 @@
 from module.base import button
 from module.base.timer import Timer
+from module.exception import GameStuckError
 from module.logger import logger
-from tasks.base.assets.assets_base_page import  MAIN_GOTO_MAIL
+from tasks.base.assets.assets_base_page import MAIN_GOTO_MAIL, MAIN_GOTO_CHARACTER
 from tasks.base.page import  page_main, page_mail
 from tasks.base.ui import UI
 from tasks.freebies.assets.assets_freebies_mail import *
@@ -15,19 +16,18 @@ class MailReward(UI):
             out: MAIL_CHECK
         """
         logger.info('Mail enter')
-        self.interval_clear([
-            page_main.check_button
-        ])
 
+        time=Timer(4,count=8).start()
         for _ in self.loop():
             if self.appear(MAIL_CHECK):
-                self.wait_until_stable(MAIL_CHECK)
                 logger.info('Mail enter success')
-                return True
+                break
 
-            if self.is_in_main(interval=2):
-                self.device.click(MAIN_GOTO_MAIL)
+            if self.appear_then_click(MAIN_GOTO_MAIL,interval=2):
                 continue
+            if time.reached():
+                raise GameStuckError("Mail enter failed")
+
 
 
     def _mail_exit(self):
@@ -37,39 +37,23 @@ class MailReward(UI):
             out: page_menu
         """
         logger.info('Mail exit')
-        self.interval_clear([
-            MAIL_CHECK
-        ])
 
+        time=Timer(4,count=8).start()
         for _ in self.loop():
             if self.ui_page_appear(page_main):
                 logger.info('go to page main')
                 break
-            if self.ui_page_appear(page_mail):
-                self.appear_then_click(MAIL_EXIT)
+            if  self.appear_then_click(MAIL_EXIT,interval=2):
+
                 logger.info('Mail exit done')
+
                 continue
-        # clear state
-        self.interval_clear([
-            page_main.check_button
-        ])
+            if time.reached():
+                raise GameStuckError("Mail exit failed")
 
 
-    def _mail_get_claim_button(self):
-        """
-        Returns:
-            CLAIM_ALL or CLAIM_ALL_DONE or None
-        """
-        self.ui_ensure(page_mail)
-        timeout = Timer(1.5, count=5).start()
-        for _ in self.loop():
-            if self.appear(CLAIM_ALL):
-                logger.attr('MailClaim', CLAIM_ALL)
-                return  CLAIM_ALL
-            # CLAIM_ALL_DONE is transparent, use match_template_luma
-            if timeout.reached():
-                logger.warning('Get MailClaim timeout')
-                return None
+
+
 
     def _mail_claim(self):
         """
@@ -77,20 +61,24 @@ class MailReward(UI):
             in: CLAIM_ALL
             out: CLAIM_ALL_DONE
         """
+        self.ui_ensure(page_mail)
         logger.info('Mail claim all')
+        time=Timer(4,count=8).start()
         for _ in self.loop():
-            # CLAIM_ALL_DONE is transparent, use match_template_luma
-            if self.match_template_luma(CLAIM_ALL_DONE):
-                break
-
-            if self.appear_then_click(CLAIM_ALL):
+            if self.appear(CLAIM_ALL,interval=1):
+                self.device.click(CLAIM_ALL)
                 continue
 
+            if self.appear(CLAIM_ALL_DONE):
+                break
+            if time.reached():
+                raise GameStuckError("Mail claim all failed")
 
 
 
 
-    def mail_claim_all(self):
+
+    def handle_mail_reward(self):
         """
         Claim mails and exit
 
@@ -101,27 +89,21 @@ class MailReward(UI):
             in: page_menu
             out: page_menu
         """
-        self.ui_ensure(page_main)
 
 
-        # #MAIL_RED_DOT
-        # if not self.appear(MAIL_RED_DOT):
-        #     logger.info("NOT FOUND MAIL_RED_DOT")
-        #     return False
+
+        #MAIL_RED_DOT
+        if not self.appear(MAIL_RED_DOT):
+            logger.info("NOT FOUND MAIL_RED_DOT")
+            return False
 
 
         # claim all
-        if not self._mail_enter():
-            return False
+        self._mail_enter()
 
-        button = self._mail_get_claim_button()
-        if button is CLAIM_ALL :
-            self._mail_claim()
-            self._mail_exit()
-            return True
-        else:
-            self._mail_exit()
-            return False
+        self._mail_claim()
+        self._mail_exit()
+
 
     def _mail_delete(self):
         timeout = Timer(1.5, count=3).start()
@@ -134,9 +116,9 @@ class MailReward(UI):
                 break
 
 az=MailReward('alas',task='Alas')
-az.image_file=r'C:\Users\liuzy\Desktop\NarutoScript\tasks\login\MAIN_GOTO_CHARACTER.png'
+az.image_file=r'C:\Users\liuzy\Desktop\NarutoScript\tasks\freebies\1.png'
 #print(az.ui_page_appear(page_mail))
 # print(az.appear(MAIL_RED_DOT))
-
-az.mail_claim_all()
+# print(az.appear(MAIN_GOTO_MAIL))
+az.handle_mail_reward()
 

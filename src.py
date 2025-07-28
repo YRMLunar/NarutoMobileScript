@@ -17,16 +17,15 @@ class StarRailCopilot(AzurLaneAutoScript):
 
     def freebies(self):
         from tasks.freebies.freebies import Freebies
-
+        Freebies(self.config,device=self.device).run()
     def zhao_cai(self):
         from tasks.zhaocai.zhaocai import ZhaoCai
-        ZhaoCai(self.config,device=self.device).handle_zhao_Cai()
-    def friend_gifts(self):
-        from tasks.freebies.friendgifts import FriendGifts
-        FriendGifts(self.config,device=self.device).handle_friend_gifts()
-    def mail_reward(self):
-        from tasks.freebies.mail import MailReward
-        MailReward(self.config,device=self.device).mail_claim_all()
+        ZhaoCai(self.config,device=self.device).run()
+    def mission(self):
+        from tasks.mission.mission import Mission
+        Mission(self.config,device=self.device).handle_mission()
+
+
 
     def goto_main(self):
         from tasks.login.login import Login

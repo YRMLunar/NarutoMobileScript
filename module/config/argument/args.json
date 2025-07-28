@@ -175,11 +175,12 @@
     "Scheduler": {
       "Enable": {
         "type": "checkbox",
-        "value": false,
+        "value": true,
         "option": [
           true,
           false
-        ]
+        ],
+        "display": true
       },
       "NextRun": {
         "type": "datetime",
@@ -193,7 +194,7 @@
       },
       "ServerUpdate": {
         "type": "input",
-        "value": "04:00",
+        "value": "05:00",
         "display": "hide"
       }
     }
@@ -206,7 +207,8 @@
         "option": [
           true,
           false
-        ]
+        ],
+        "display": true
       },
       "NextRun": {
         "type": "datetime",
@@ -220,8 +222,22 @@
       },
       "ServerUpdate": {
         "type": "input",
-        "value": "04:00",
+        "value": "05:00",
         "display": "hide"
+      }
+    },
+    "Freebies": {
+      "FriendGifts": {
+        "type": "checkbox",
+        "value": true
+      },
+      "DailyShare": {
+        "type": "checkbox",
+        "value": true
+      },
+      "MailReward": {
+        "type": "checkbox",
+        "value": true
       }
     }
   },
@@ -233,7 +249,8 @@
         "option": [
           true,
           false
-        ]
+        ],
+        "display": true
       },
       "NextRun": {
         "type": "datetime",
@@ -247,8 +264,14 @@
       },
       "ServerUpdate": {
         "type": "input",
-        "value": "04:00",
+        "value": "05:00",
         "display": "hide"
+      }
+    },
+    "ZhaoCai": {
+      "ZhaoCaiFree": {
+        "type": "checkbox",
+        "value": true
       }
     }
   }

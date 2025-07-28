@@ -93,9 +93,9 @@ MAIN_GOTO_MAIL = ButtonWrapper(
     name='MAIN_GOTO_MAIL',
     share=Button(
         file='./assets/share/freebies/mail/MAIN_GOTO_MAIL.png',
-        area=(36, 259, 80, 298),
-        search=(16, 239, 100, 318),
-        color=(184, 146, 43),
-        button=(36, 259, 80, 298),
+        area=(34, 256, 83, 301),
+        search=(14, 236, 103, 321),
+        color=(177, 151, 58),
+        button=(34, 256, 83, 301),
     ),
 )

@@ -45,13 +45,22 @@ GIFTS_CLAIM = ButtonWrapper(
 )
 GIFTS_CLAIM_CHECK = ButtonWrapper(
     name='GIFTS_CLAIM_CHECK',
-    share=Button(
-        file='./assets/share/freebies/friendgifts/GIFTS_CLAIM_CHECK.png',
-        area=(501, 263, 775, 374),
-        search=(481, 243, 795, 394),
-        color=(155, 134, 106),
-        button=(501, 263, 775, 374),
-    ),
+    share=[
+        Button(
+            file='./assets/share/freebies/friendgifts/GIFTS_CLAIM_CHECK.png',
+            area=(501, 263, 775, 374),
+            search=(481, 243, 795, 394),
+            color=(155, 134, 106),
+            button=(501, 263, 775, 374),
+        ),
+        Button(
+            file='./assets/share/freebies/friendgifts/GIFTS_CLAIM_CHECK.2.png',
+            area=(296, 335, 983, 383),
+            search=(276, 315, 1003, 403),
+            color=(68, 72, 73),
+            button=(296, 335, 983, 383),
+        ),
+    ],
 )
 GIFTS_CLAIM_CONFIRM = ButtonWrapper(
     name='GIFTS_CLAIM_CONFIRM',
@@ -71,6 +80,16 @@ GIFTS_GIVE = ButtonWrapper(
         search=(314, 550, 512, 637),
         color=(202, 139, 21),
         button=(334, 570, 492, 617),
+    ),
+)
+GIVE_DONE = ButtonWrapper(
+    name='GIVE_DONE',
+    share=Button(
+        file='./assets/share/freebies/friendgifts/GIVE_DONE.png',
+        area=(478, 335, 789, 380),
+        search=(458, 315, 809, 400),
+        color=(76, 81, 82),
+        button=(478, 335, 789, 380),
     ),
 )
 MAIN_GOTO_FRIEND_PANEL = ButtonWrapper(

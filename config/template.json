@@ -37,10 +37,10 @@
   },
   "Mission": {
     "Scheduler": {
-      "Enable": false,
+      "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Mission",
-      "ServerUpdate": "04:00"
+      "ServerUpdate": "05:00"
     }
   },
   "Freebies": {
@@ -48,7 +48,12 @@
       "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "Freebies",
-      "ServerUpdate": "04:00"
+      "ServerUpdate": "05:00"
+    },
+    "Freebies": {
+      "FriendGifts": true,
+      "DailyShare": true,
+      "MailReward": true
     }
   },
   "ZhaoCai": {
@@ -56,7 +61,10 @@
       "Enable": true,
       "NextRun": "2020-01-01 00:00:00",
       "Command": "ZhaoCai",
-      "ServerUpdate": "04:00"
+      "ServerUpdate": "05:00"
+    },
+    "ZhaoCai": {
+      "ZhaoCaiFree": true
     }
   }
 }

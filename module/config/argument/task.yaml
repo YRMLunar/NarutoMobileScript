@@ -26,12 +26,10 @@ Daily:
       - Scheduler
     Freebies:
       - Scheduler
-      - MailReward
-      - DailyShare
-      - FriendsGifts
+      - Freebies
     ZhaoCai:
       - Scheduler
-      - ZhaoCaiFree
+      - ZhaoCai
 
 
 # ==================== Weekly ====================

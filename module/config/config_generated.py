@@ -13,7 +13,7 @@ class GeneratedConfig:
     Scheduler_Enable = False  # True, False
     Scheduler_NextRun = datetime.datetime(2020, 1, 1, 0, 0)
     Scheduler_Command = 'Alas'
-    Scheduler_ServerUpdate = '04:00'
+    Scheduler_ServerUpdate = '05:00'
 
     # Group `Emulator`
     Emulator_Serial = 'auto'
@@ -42,9 +42,9 @@ class GeneratedConfig:
     Optimization_WhenTaskQueueEmpty = 'goto_main'  # stay_there, goto_main, close_game, close_emulator
 
     # Group `Freebies`
-    Freebies_FriendGifts = False
-    Freebies_DailyShare = False
-    Freebies_MailReward = False
+    Freebies_FriendGifts = True
+    Freebies_DailyShare = True
+    Freebies_MailReward = True
 
     # Group `ZhaoCai`
-    ZhaoCai_ZhaoCaiFree = False
+    ZhaoCai_ZhaoCaiFree = True

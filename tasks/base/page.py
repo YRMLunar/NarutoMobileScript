@@ -1,11 +1,11 @@
 import traceback
 
 from tasks.base.assets.assets_base_page import *
-from tasks.freebies.assets.assets_freebies_dailyshare import PANEL_CHECK, MAIN_GOTO_PANEL, PANEL_GOTO_MAIN
-from tasks.freebies.assets.assets_freebies_friendgifts import FRIEND_PANEL_CHECK, FRIEND_PANEL_GOTO_MAIN, \
-    MAIN_GOTO_FRIEND_PANEL, GIFTS_CLAIM_CHECK, GIFTS_CLAIM_CONFIRM
-from tasks.freebies.assets.assets_freebies_mail import MAIL_EXIT
-from tasks.mission.assets.assets_mission import MISSION_EXIT, MISSION_CHECK, MISSION_RED_DOT
+from tasks.freebies.assets.assets_freebies_dailyshare import PANEL_CHECK, PANEL_GOTO_MAIN
+from tasks.freebies.assets.assets_freebies_friendgifts import FRIEND_PANEL_CHECK, GIFTS_CLAIM_CHECK, \
+    FRIEND_PANEL_GOTO_MAIN, GIFTS_CLAIM_CONFIRM
+from tasks.freebies.assets.assets_freebies_mail import MAIL_CHECK, MAIL_EXIT
+from tasks.mission.assets.assets_mission import MISSION_CHECK, MISSION_RED_DOT, MISSION_EXIT
 from tasks.zhaocai.assets.assets_zhaocai import ZHAO_CAI_CHECK, MAIN_GOTO_ZHAO_CAI, ZHAO_CAI_GOTO_MAIN
 
 
@@ -79,7 +79,7 @@ page_main=Page(MAIN_GOTO_CHARACTER)
 #Mail
 page_mail=Page(MAIL_CHECK)
 page_mail.link(MAIL_EXIT,destination=page_main)
-page_main.link(MAIL_CHECK,destination=page_mail)
+page_main.link(MAIN_GOTO_MAIL,destination=page_mail)
 #Mission
 page_mission=Page(MISSION_CHECK)
 page_main.link(MISSION_RED_DOT,destination=page_mission)

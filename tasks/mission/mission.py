@@ -14,9 +14,9 @@ from tasks.mission.assets.assets_mission import MISSION_CHECK, MISSION_RED_DOT, 
     MISSION_REWARD_CLAIM_ALL, MISSION_REWARD, REWARD_CLAIM_DONE, TASK_AREA, CHARACTER_UNSELECTED, \
     CHARACTER_SELECTED_AUTO, CHARACTER_SELECTED, TASK_ACCEPT, ACCPET_BUTTON, CHARACTER_SELECTED_MANUAL, \
     MISSION_SELECTED_SUCCESS
-from tasks.mission.missionOcr import MissionOcr
+
 from tasks.mission.priority import Mission_Selected_Priority, MissionTask
-from tasks.mission.select import MissionCharacter
+
 from tasks.mission.utils import getTaskName, result_time_fromat, generate_4x4_grid
 
 
@@ -27,6 +27,7 @@ class Mission(UI):
             return False
         self._mission_reward_claim()
         #self._mission_selected()
+        self.config.task_delay(server_update=True)
 
 
     def _mission_enter(self):

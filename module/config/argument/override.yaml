@@ -21,7 +21,25 @@ Restart:
     ServerUpdate: 04:00
 
 # ==================== Daily ====================
+Freebies:
+  Scheduler:
+    Enable:
+      type: checkbox
+      value: true
+      display: true
 
+ZhaoCai:
+  Scheduler:
+    Enable:
+      type: checkbox
+      value: true
+      display: true
+Mission:
+  Scheduler:
+    Enable:
+      type: checkbox
+      value: true
+      display: true
 
 # ==================== Weekly ====================
 

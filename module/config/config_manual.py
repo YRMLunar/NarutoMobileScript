@@ -9,11 +9,9 @@ class ManualConfig:
         return server.lang
 
     SCHEDULER_PRIORITY = """
-    Restart
-    > Weekly > Ornament > Dungeon > Assignment
-    > BattlePass > DailyQuest
-    > Freebies > DataUpdate
-    > Rogue
+    Restart>ZhaoCai>Mission
+    > Freebies 
+    
     """
 
     """
