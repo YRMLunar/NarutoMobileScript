@@ -12,7 +12,7 @@ on:
 
 concurrency:
   group: webapp-release-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 defaults:
   run:
@@ -26,13 +26,22 @@ jobs:
         os: [ macos-latest, ubuntu-latest, windows-latest ]
 
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - name: Setup Node.js with retry
+        uses: nick-fields/retry@v2
         with:
-          node-version: 16
+          timeout_minutes: 10
+          max_attempts: 3
+          retry_wait_seconds: 30
+          command: echo "Preparing Node.js setup..."
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
           cache: 'npm'
           cache-dependency-path: webapp/package-lock.json
 
