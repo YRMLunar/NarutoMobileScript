@@ -21,23 +21,15 @@ defaults:
 jobs:
   webapp_build:
     strategy:
-      fail-fast: true
+      fail-fast: false  # 改为 false，避免一个平台失败影响其他平台
       matrix:
         os: [ macos-latest, ubuntu-latest, windows-latest ]
 
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 60
+    timeout-minutes: 90
 
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Node.js with retry
-        uses: nick-fields/retry@v2
-        with:
-          timeout_minutes: 10
-          max_attempts: 3
-          retry_wait_seconds: 30
-          command: echo "Preparing Node.js setup..."
 
       - uses: actions/setup-node@v4
         with:
@@ -45,21 +37,35 @@ jobs:
           cache: 'npm'
           cache-dependency-path: webapp/package-lock.json
 
-      - name: Install dependencies
+      - name: Configure npm for stability
         working-directory: webapp
-        run: npm ci --legacy-peer-deps
+        run: |
+          npm config set fetch-retry-mintimeout 20000  
+          npm config set fetch-retry-maxtimeout 120000  
+          npm config set fetch-retries 5  
+
+      - name: Install dependencies with retry
+        uses: nick-fields/retry@v2
+        with:
+          timeout_minutes: 25
+          max_attempts: 3
+          retry_wait_seconds: 30
+          command: |
+            cd webapp  
+            npm ci --legacy-peer-deps
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
       - name: Build webapp
         working-directory: webapp
         run: npm run build
+        timeout-minutes: 15
 
       - name: Package and release
         uses: nick-fields/retry@v2
         with:
-          timeout_minutes: 15
-          max_attempts: 6
+          timeout_minutes: 20
+          max_attempts: 3
           retry_wait_seconds: 15
           retry_on: error
           shell: 'bash'
