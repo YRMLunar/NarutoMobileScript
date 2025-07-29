@@ -1,0 +1,26 @@
+# --------------------
+# Define default values
+# --------------------
+
+# ==================== Alas ====================
+
+Alas:
+  Emulator:
+    ScreenshotMethod: scrcpy
+
+# ==================== Daily ====================
+
+
+Freebies:
+  Scheduler:
+    Enable: true
+ZhaoCai:
+  Scheduler:
+    Enable: true
+Mission:
+  Scheduler:
+    Enable: true
+
+# ==================== Weekly ====================
+
+
