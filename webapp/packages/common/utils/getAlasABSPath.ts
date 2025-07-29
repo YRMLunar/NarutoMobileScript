@@ -8,14 +8,7 @@ import fs from 'fs';
  */
 const getAlasABSPath = (
   files: string[] = ['**/config/deploy.yaml', '**/config/deploy.template.yaml'],
-  rootName: string | string[] = [
-    'AzurLaneAutoScript',
-    'Alas',
-    'StarRailCopilot',
-    'SRC',
-    'NarutoScript',
-    'Ns',
-  ],
+  rootName: string | string[] = ['AzurLaneAutoScript', 'Alas', 'StarRailCopilot', 'SRC'],
 ) => {
   const path = require('path');
   const sep = path.sep;

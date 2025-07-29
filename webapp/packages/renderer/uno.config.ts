@@ -1,5 +1,4 @@
 // uno.config.ts
-// uno.config.ts
 import {
   defineConfig,
   presetAttributify,
@@ -10,9 +9,7 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss';
-
-// 定义主色调或从其他地方导入
-const primaryColor = '#1890ff';
+import {primaryColor} from './build/config/themeConfig';
 
 export default defineConfig({
   theme: {
