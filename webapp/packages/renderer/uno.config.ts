@@ -9,7 +9,7 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss';
-const primaryColor = '#165dff';
+import {primaryColor} from './build/config/themeConfig';
 
 export default defineConfig({
   theme: {
