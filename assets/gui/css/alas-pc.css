@@ -37,7 +37,11 @@
 }
 
 #pywebio-scope-log-bar,
-#pywebio-scope-log,
+#pywebio-scope-log
+{display: none;
+
+
+}
 #pywebio-scope-daemon-overview #pywebio-scope-groups {
     overflow-y: auto;
 }
