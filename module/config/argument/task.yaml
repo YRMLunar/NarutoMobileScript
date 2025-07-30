@@ -30,6 +30,10 @@ Daily:
     ZhaoCai:
       - Scheduler
       - ZhaoCai
+    Organization:
+      - Scheduler
+      - Organization
+
 
 
 # ==================== Weekly ====================

@@ -29,6 +29,10 @@
     "ZhaoCai": {
       "name": "招财",
       "help": ""
+    },
+    "Organization": {
+      "name": "组织活动",
+      "help": ""
     }
   },
   "Scheduler": {
@@ -216,6 +220,17 @@
     },
     "ZhaoCaiFree": {
       "name": "每日免费招财",
+      "help": ""
+    }
+
+  },
+  "Organization": {
+    "_info": {
+      "name": "组织活动",
+      "help": ""
+    },
+    "ZhaoCaiFree": {
+      "name": "每日祈福",
       "help": ""
     }
 

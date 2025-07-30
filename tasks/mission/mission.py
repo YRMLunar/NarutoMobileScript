@@ -1,5 +1,6 @@
 from dev_tools.button_extract import parse_grid
 from module.base.timer import Timer
+from module.exception import GameStuckError
 from module.logger.logger import logger
 
 from module.base.utils import crop
@@ -13,7 +14,7 @@ from tasks.base.ui import UI
 from tasks.mission.assets.assets_mission import MISSION_CHECK, MISSION_RED_DOT, WORK_FINISHED, WORK, \
     MISSION_REWARD_CLAIM_ALL, MISSION_REWARD, REWARD_CLAIM_DONE, TASK_AREA, CHARACTER_UNSELECTED, \
     CHARACTER_SELECTED_AUTO, CHARACTER_SELECTED, TASK_ACCEPT, ACCPET_BUTTON, CHARACTER_SELECTED_MANUAL, \
-    MISSION_SELECTED_SUCCESS
+    MISSION_SELECTED_SUCCESS, MAIN_GOTO_MISSION
 
 from tasks.mission.priority import Mission_Selected_Priority, MissionTask
 
@@ -31,33 +32,33 @@ class Mission(UI):
 
 
     def _mission_enter(self):
-        self.device.swipe_maatouch([180,322],[1141,314])
-        logger.info("left swipe")
-        timer = Timer(3,count=2).start()
+        self.device.screenshot()
+        self.device.swipe([0, 322], [1280, 314])
+        move = True
+        time = Timer(10, count=10).start()
+        m=2
         for _ in self.loop():
-            if self.appear(MISSION_CHECK):
-                self.wait_until_stable(MISSION_CHECK)
-                logger.info('mission entered')
-                timer.clear()
-                return True
-            if self.appear(MISSION_RED_DOT):
-                logger.info("Found Mission")
-                self.device.click(MISSION_RED_DOT)
+            MISSION_RED_DOT.load_search((200, 100, 1100, 700))
+            if self.appear_then_click(MISSION_RED_DOT):
                 continue
-            if timer.reached():
-                timer.clear()
-                return False
-        # self.device.swipe_maatouch([1141,314],[180,322])
-        # timer = Timer(1.5,count=2)
-        # for _ in self.loop():
-        #     if self.appear(MISSION_RED_DOT):
-        #         self.wait_until_stable(MISSION_RED_DOT)
-        #         self.device.click(MISSION_RED_DOT)
-        #         timer.clear()
-        #         return
-        #     if timer.reached():
-        #         timer.clear()
-        #         break
+            MAIN_GOTO_MISSION.load_search((200, 100, 1100, 700))
+            if MAIN_GOTO_MISSION.match_template(self.device.image,direct_match=True):
+                move = False
+                continue
+            if self.appear(MISSION_CHECK):
+                return True
+            if time.reached():
+                if move and m%2==0:
+                    self.device.swipe( [1200, 314],[0, 322])
+                    time.reset()
+                    m=m+1
+                elif move and m%2==1:
+                    self.device.swipe([0, 322], [1200, 314])
+                    m=m+1
+                    time.reset()
+                elif m>5:
+                    raise GameStuckError("Mission enter Stucked")
+        logger.info(f"Mission entered")
 
     def _mission_reward_claim(self):
         self.ui_ensure(page_mission)
@@ -146,7 +147,7 @@ class Mission(UI):
 az=Mission('alas',task='Alas')
 # a=TxtBox(button=(537,212.577,311),txt='1',threadhold=0.5)
 
-az._mission_reward_claim()
+az._mission_enter()
 
 # #
 # # print(az.appear(MISSION_CHECK))

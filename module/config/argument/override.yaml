@@ -40,6 +40,12 @@ Mission:
       type: checkbox
       value: true
       display: true
+Organization:
+  Scheduler:
+    Enable:
+      type: checkbox
+      value: true
+      display: true
 
 # ==================== Weekly ====================
 

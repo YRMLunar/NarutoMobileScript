@@ -48,3 +48,6 @@ class GeneratedConfig:
 
     # Group `ZhaoCai`
     ZhaoCai_ZhaoCaiFree = True
+
+    # Group `Organization`
+    Organization_OrganizationPray = True

@@ -32,10 +32,10 @@ GAME_IN_ADVERTISE = ButtonWrapper(
         ),
         Button(
             file='./assets/share/login/popup/GAME_IN_ADVERTISE.3.png',
-            area=(0, 0, 1280, 720),
-            search=(0, 0, 1280, 720),
-            color=(91, 81, 53),
-            button=(0, 0, 1280, 720),
+            area=(1099, 0, 1280, 74),
+            search=(1079, 0, 1280, 94),
+            color=(26, 12, 9),
+            button=(1099, 0, 1280, 74),
         ),
     ],
 )

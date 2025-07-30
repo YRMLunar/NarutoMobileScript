@@ -20,6 +20,9 @@ ZhaoCai:
 Mission:
   Scheduler:
     Enable: true
+Organization:
+  Scheduler:
+    Enable: true
 
 # ==================== Weekly ====================
 

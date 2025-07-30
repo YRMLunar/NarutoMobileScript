@@ -105,6 +105,10 @@ ZhaoCai:
   ZhaoCaiFree:
     type: checkbox
     value:  true
+Organization:
+  OrganizationPray:
+    type: checkbox
+    value:  true
 
 
 # ==================== Rogue ====================
