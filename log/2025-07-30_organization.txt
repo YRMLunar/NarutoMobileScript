@@ -1,0 +1,118 @@
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+                                                         START                                                         
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+2025-07-30 13:01:10.587 | INFO | [Lang] cn                                                                             
+2025-07-30 13:01:10.591 | INFO | Bind task ['Alas']                                                                    
+2025-07-30 13:01:11.317 | INFO | [Lang] cn                                                                             
+2025-07-30 13:01:11.319 | INFO | Bind task ['Alas']                                                                    
+═══════════════════════════════════════════════════════ DEVICE ════════════════════════════════════════════════════════
+2025-07-30 13:01:11.321 | INFO | DEVICE                                                                                
+2025-07-30 13:01:11.334 | INFO | [AdbBinary]                                                                           
+C:/Users/liuzy/Desktop/NarutoScript/toolkit/Lib/site-packages/adbutils/binaries/adb.exe                                
+2025-07-30 13:01:11.335 | INFO | [AdbClient] AdbClient(127.0.0.1, 5037)                                                
+2025-07-30 13:01:11.337 | INFO | <<< DETECT DEVICE >>>                                                                 
+2025-07-30 13:01:11.338 | INFO | Here are the available devices, copy to Alas.Emulator.Serial to use it or set         
+Alas.Emulator.Serial="auto"                                                                                            
+2025-07-30 13:01:11.349 | INFO | 127.0.0.1:16384                                                                       
+2025-07-30 13:01:11.378 | INFO | already connected to 127.0.0.1:16384                                                  
+2025-07-30 13:01:11.379 | INFO | [AdbDevice] AdbDevice(serial=127.0.0.1:16384)                                         
+2025-07-30 13:01:11.382 | INFO | [Server] CN-Official                                                                  
+2025-07-30 13:01:11.382 | INFO | [PackageName] com.tencent.KiHan                                                       
+2025-07-30 13:01:11.383 | INFO | [Lang] auto                                                                           
+2025-07-30 13:01:11.396 | INFO | [nemud.player_version]                                                                
+2025-07-30 13:01:11.399 | INFO | [customer.app_keptlive] false                                                         
+2025-07-30 13:01:11.406 | INFO | NemuIpcImpl init, nemu_folder=E:\MuMu Player 12, ipc_dll=E:\MuMu Player               
+12\shell\sdk\external_renderer_ipc.dll, instance_id=0, display_id=0                                                    
+2025-07-30 13:01:11.413 | INFO | [nemu_ipc_available] True                                                             
+2025-07-30 13:01:11.414 | INFO | Screenshot interval set to 0.2s                                                       
+2025-07-30 13:01:11.437 | INFO | [Screen_size] 1280x720                                                                
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+                                                         START                                                         
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+2025-07-30 13:01:18.563 | INFO | [Lang] cn                                                                             
+2025-07-30 13:01:18.565 | INFO | Bind task ['Alas']                                                                    
+2025-07-30 13:01:19.034 | INFO | [Lang] cn                                                                             
+2025-07-30 13:01:19.036 | INFO | Bind task ['Alas']                                                                    
+═══════════════════════════════════════════════════════ DEVICE ════════════════════════════════════════════════════════
+2025-07-30 13:01:19.038 | INFO | DEVICE                                                                                
+2025-07-30 13:01:19.043 | INFO | [AdbBinary]                                                                           
+C:/Users/liuzy/Desktop/NarutoScript/toolkit/Lib/site-packages/adbutils/binaries/adb.exe                                
+2025-07-30 13:01:19.045 | INFO | [AdbClient] AdbClient(127.0.0.1, 5037)                                                
+2025-07-30 13:01:19.047 | INFO | <<< DETECT DEVICE >>>                                                                 
+2025-07-30 13:01:19.048 | INFO | Here are the available devices, copy to Alas.Emulator.Serial to use it or set         
+Alas.Emulator.Serial="auto"                                                                                            
+2025-07-30 13:01:19.050 | INFO | 127.0.0.1:16384                                                                       
+2025-07-30 13:01:19.054 | INFO | already connected to 127.0.0.1:16384                                                  
+2025-07-30 13:01:19.057 | INFO | [AdbDevice] AdbDevice(serial=127.0.0.1:16384)                                         
+2025-07-30 13:01:19.058 | INFO | [Server] CN-Official                                                                  
+2025-07-30 13:01:19.060 | INFO | [PackageName] com.tencent.KiHan                                                       
+2025-07-30 13:01:19.061 | INFO | [Lang] auto                                                                           
+2025-07-30 13:01:19.070 | INFO | [nemud.player_version]                                                                
+2025-07-30 13:01:19.072 | INFO | [customer.app_keptlive] false                                                         
+2025-07-30 13:01:19.074 | INFO | NemuIpcImpl init, nemu_folder=E:\MuMu Player 12, ipc_dll=E:\MuMu Player               
+12\shell\sdk\external_renderer_ipc.dll, instance_id=0, display_id=0                                                    
+2025-07-30 13:01:19.078 | INFO | [nemu_ipc_available] True                                                             
+2025-07-30 13:01:19.081 | INFO | Screenshot interval set to 0.2s                                                       
+2025-07-30 13:01:19.094 | INFO | [Screen_size] 1280x720                                                                
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+                                                         START                                                         
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+2025-07-30 13:01:27.344 | INFO | [Lang] cn                                                                             
+2025-07-30 13:01:27.346 | INFO | Bind task ['Alas']                                                                    
+2025-07-30 13:01:27.837 | INFO | [Lang] cn                                                                             
+2025-07-30 13:01:27.840 | INFO | Bind task ['Alas']                                                                    
+═══════════════════════════════════════════════════════ DEVICE ════════════════════════════════════════════════════════
+2025-07-30 13:01:27.843 | INFO | DEVICE                                                                                
+2025-07-30 13:01:27.846 | INFO | [AdbBinary]                                                                           
+C:/Users/liuzy/Desktop/NarutoScript/toolkit/Lib/site-packages/adbutils/binaries/adb.exe                                
+2025-07-30 13:01:27.848 | INFO | [AdbClient] AdbClient(127.0.0.1, 5037)                                                
+2025-07-30 13:01:27.849 | INFO | <<< DETECT DEVICE >>>                                                                 
+2025-07-30 13:01:27.851 | INFO | Here are the available devices, copy to Alas.Emulator.Serial to use it or set         
+Alas.Emulator.Serial="auto"                                                                                            
+2025-07-30 13:01:27.854 | INFO | 127.0.0.1:16384                                                                       
+2025-07-30 13:01:27.859 | INFO | already connected to 127.0.0.1:16384                                                  
+2025-07-30 13:01:27.860 | INFO | [AdbDevice] AdbDevice(serial=127.0.0.1:16384)                                         
+2025-07-30 13:01:27.862 | INFO | [Server] CN-Official                                                                  
+2025-07-30 13:01:27.863 | INFO | [PackageName] com.tencent.KiHan                                                       
+2025-07-30 13:01:27.864 | INFO | [Lang] auto                                                                           
+2025-07-30 13:01:27.884 | INFO | [nemud.player_version]                                                                
+2025-07-30 13:01:27.886 | INFO | [customer.app_keptlive] false                                                         
+2025-07-30 13:01:27.889 | INFO | NemuIpcImpl init, nemu_folder=E:\MuMu Player 12, ipc_dll=E:\MuMu Player               
+12\shell\sdk\external_renderer_ipc.dll, instance_id=0, display_id=0                                                    
+2025-07-30 13:01:27.893 | INFO | [nemu_ipc_available] True                                                             
+2025-07-30 13:01:27.894 | INFO | Screenshot interval set to 0.2s                                                       
+2025-07-30 13:01:27.910 | INFO | [Screen_size] 1280x720                                                                
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+                                                         START                                                         
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+2025-07-30 13:38:37.476 | INFO | [Lang] cn                                                                             
+2025-07-30 13:38:37.478 | INFO | Bind task ['Alas']                                                                    
+2025-07-30 13:38:37.936 | INFO | [Lang] cn                                                                             
+2025-07-30 13:38:37.938 | INFO | Bind task ['Alas']                                                                    
+═══════════════════════════════════════════════════════ DEVICE ════════════════════════════════════════════════════════
+2025-07-30 13:38:37.940 | INFO | DEVICE                                                                                
+2025-07-30 13:38:37.944 | INFO | [AdbBinary]                                                                           
+C:/Users/liuzy/Desktop/NarutoScript/toolkit/Lib/site-packages/adbutils/binaries/adb.exe                                
+2025-07-30 13:38:37.946 | INFO | [AdbClient] AdbClient(127.0.0.1, 5037)                                                
+2025-07-30 13:38:37.947 | INFO | <<< DETECT DEVICE >>>                                                                 
+2025-07-30 13:38:37.949 | INFO | Here are the available devices, copy to Alas.Emulator.Serial to use it or set         
+Alas.Emulator.Serial="auto"                                                                                            
+2025-07-30 13:38:37.950 | INFO | 127.0.0.1:16384                                                                       
+2025-07-30 13:38:37.953 | INFO | already connected to 127.0.0.1:16384                                                  
+2025-07-30 13:38:37.955 | INFO | [AdbDevice] AdbDevice(serial=127.0.0.1:16384)                                         
+2025-07-30 13:38:37.957 | INFO | [Server] CN-Official                                                                  
+2025-07-30 13:38:37.958 | INFO | [PackageName] com.tencent.KiHan                                                       
+2025-07-30 13:38:37.959 | INFO | [Lang] auto                                                                           
+2025-07-30 13:38:37.973 | INFO | [nemud.player_version]                                                                
+2025-07-30 13:38:37.974 | INFO | [customer.app_keptlive] false                                                         
+2025-07-30 13:38:37.976 | INFO | NemuIpcImpl init, nemu_folder=E:\MuMu Player 12, ipc_dll=E:\MuMu Player               
+12\shell\sdk\external_renderer_ipc.dll, instance_id=0, display_id=0                                                    
+2025-07-30 13:38:37.980 | INFO | [nemu_ipc_available] True                                                             
+2025-07-30 13:38:37.981 | INFO | Screenshot interval set to 0.2s                                                       
+2025-07-30 13:38:37.982 | INFO | <<< UI ENSURE >>>                                                                     
+2025-07-30 13:38:37.983 | INFO | UI get current page                                                                   
+2025-07-30 13:38:37.996 | INFO | [Screen_size] 1280x720                                                                
+2025-07-30 13:38:38.012 | INFO | [UI] page_main                                                                        
+2025-07-30 13:38:38.014 | INFO | UI get current page                                                                   
+2025-07-30 13:38:38.015 | INFO | [UI] page_main                                                                        
+2025-07-30 13:38:38.017 | INFO | Already at page_main                                                                  

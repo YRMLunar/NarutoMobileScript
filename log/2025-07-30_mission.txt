@@ -1,0 +1,212 @@
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+                                                         START                                                         
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+2025-07-30 13:57:43.488 | INFO | [Lang] cn                                                                             
+2025-07-30 13:57:43.491 | INFO | Bind task ['Alas']                                                                    
+2025-07-30 13:57:43.890 | INFO | [Lang] cn                                                                             
+2025-07-30 13:57:43.893 | INFO | Bind task ['Alas']                                                                    
+═══════════════════════════════════════════════════════ DEVICE ════════════════════════════════════════════════════════
+2025-07-30 13:57:43.894 | INFO | DEVICE                                                                                
+2025-07-30 13:57:43.899 | INFO | [AdbBinary]                                                                           
+C:/Users/liuzy/Desktop/NarutoScript/toolkit/Lib/site-packages/adbutils/binaries/adb.exe                                
+2025-07-30 13:57:43.900 | INFO | [AdbClient] AdbClient(127.0.0.1, 5037)                                                
+2025-07-30 13:57:43.902 | INFO | <<< DETECT DEVICE >>>                                                                 
+2025-07-30 13:57:43.903 | INFO | Here are the available devices, copy to Alas.Emulator.Serial to use it or set         
+Alas.Emulator.Serial="auto"                                                                                            
+2025-07-30 13:57:43.905 | INFO | 127.0.0.1:16384                                                                       
+2025-07-30 13:57:43.909 | INFO | already connected to 127.0.0.1:16384                                                  
+2025-07-30 13:57:43.910 | INFO | [AdbDevice] AdbDevice(serial=127.0.0.1:16384)                                         
+2025-07-30 13:57:43.911 | INFO | [Server] CN-Official                                                                  
+2025-07-30 13:57:43.912 | INFO | [PackageName] com.tencent.KiHan                                                       
+2025-07-30 13:57:43.914 | INFO | [Lang] auto                                                                           
+2025-07-30 13:57:43.922 | INFO | [nemud.player_version]                                                                
+2025-07-30 13:57:43.923 | INFO | [customer.app_keptlive] false                                                         
+2025-07-30 13:57:43.925 | INFO | NemuIpcImpl init, nemu_folder=E:\MuMu Player 12, ipc_dll=E:\MuMu Player               
+12\shell\sdk\external_renderer_ipc.dll, instance_id=0, display_id=0                                                    
+2025-07-30 13:57:43.929 | INFO | [nemu_ipc_available] True                                                             
+2025-07-30 13:57:43.930 | INFO | Screenshot interval set to 0.2s                                                       
+2025-07-30 13:57:43.932 | INFO | Swipe (   0,  322) -> (1280,  314)                                                    
+2025-07-30 13:57:43.934 | INFO | <<< MAATOUCH INIT >>>                                                                 
+2025-07-30 13:57:43.952 | INFO | [Device Orientation] 1 (HOME key on the right)                                        
+2025-07-30 13:57:44.161 | INFO | ^ 10 1280 720 255                                                                     
+2025-07-30 13:57:44.162 | INFO | $ 255                                                                                 
+2025-07-30 13:57:44.164 | INFO | MaaTouch stream connected                                                             
+2025-07-30 13:57:44.165 | INFO | max_contact: 10; max_x: 1280; max_y: 720; max_pressure: 255                           
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+                                                         START                                                         
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+2025-07-30 13:58:07.050 | INFO | [Lang] cn                                                                             
+2025-07-30 13:58:07.052 | INFO | Bind task ['Alas']                                                                    
+2025-07-30 13:58:07.426 | INFO | [Lang] cn                                                                             
+2025-07-30 13:58:07.428 | INFO | Bind task ['Alas']                                                                    
+═══════════════════════════════════════════════════════ DEVICE ════════════════════════════════════════════════════════
+2025-07-30 13:58:07.431 | INFO | DEVICE                                                                                
+2025-07-30 13:58:07.434 | INFO | [AdbBinary]                                                                           
+C:/Users/liuzy/Desktop/NarutoScript/toolkit/Lib/site-packages/adbutils/binaries/adb.exe                                
+2025-07-30 13:58:07.435 | INFO | [AdbClient] AdbClient(127.0.0.1, 5037)                                                
+2025-07-30 13:58:07.437 | INFO | <<< DETECT DEVICE >>>                                                                 
+2025-07-30 13:58:07.439 | INFO | Here are the available devices, copy to Alas.Emulator.Serial to use it or set         
+Alas.Emulator.Serial="auto"                                                                                            
+2025-07-30 13:58:07.441 | INFO | 127.0.0.1:16384                                                                       
+2025-07-30 13:58:07.444 | INFO | already connected to 127.0.0.1:16384                                                  
+2025-07-30 13:58:07.445 | INFO | [AdbDevice] AdbDevice(serial=127.0.0.1:16384)                                         
+2025-07-30 13:58:07.447 | INFO | [Server] CN-Official                                                                  
+2025-07-30 13:58:07.449 | INFO | [PackageName] com.tencent.KiHan                                                       
+2025-07-30 13:58:07.450 | INFO | [Lang] auto                                                                           
+2025-07-30 13:58:07.458 | INFO | [nemud.player_version]                                                                
+2025-07-30 13:58:07.460 | INFO | [customer.app_keptlive] false                                                         
+2025-07-30 13:58:07.462 | INFO | NemuIpcImpl init, nemu_folder=E:\MuMu Player 12, ipc_dll=E:\MuMu Player               
+12\shell\sdk\external_renderer_ipc.dll, instance_id=0, display_id=0                                                    
+2025-07-30 13:58:07.466 | INFO | [nemu_ipc_available] True                                                             
+2025-07-30 13:58:07.467 | INFO | Screenshot interval set to 0.2s                                                       
+2025-07-30 13:58:07.479 | INFO | [Screen_size] 1280x720                                                                
+2025-07-30 13:58:07.482 | INFO | Swipe (   0,  322) -> (1280,  314)                                                    
+2025-07-30 13:58:07.484 | INFO | <<< MAATOUCH INIT >>>                                                                 
+2025-07-30 13:58:07.497 | INFO | [Device Orientation] 1 (HOME key on the right)                                        
+2025-07-30 13:58:07.701 | INFO | ^ 10 1280 720 255                                                                     
+2025-07-30 13:58:07.702 | INFO | $ 255                                                                                 
+2025-07-30 13:58:07.704 | INFO | MaaTouch stream connected                                                             
+2025-07-30 13:58:07.705 | INFO | max_contact: 10; max_x: 1280; max_y: 720; max_pressure: 255                           
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+                                                         START                                                         
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+2025-07-30 14:00:39.720 | INFO | [Lang] cn                                                                             
+2025-07-30 14:00:39.722 | INFO | Bind task ['Alas']                                                                    
+2025-07-30 14:00:40.112 | INFO | [Lang] cn                                                                             
+2025-07-30 14:00:40.114 | INFO | Bind task ['Alas']                                                                    
+═══════════════════════════════════════════════════════ DEVICE ════════════════════════════════════════════════════════
+2025-07-30 14:00:40.116 | INFO | DEVICE                                                                                
+2025-07-30 14:00:40.119 | INFO | [AdbBinary]                                                                           
+C:/Users/liuzy/Desktop/NarutoScript/toolkit/Lib/site-packages/adbutils/binaries/adb.exe                                
+2025-07-30 14:00:40.122 | INFO | [AdbClient] AdbClient(127.0.0.1, 5037)                                                
+2025-07-30 14:00:40.123 | INFO | <<< DETECT DEVICE >>>                                                                 
+2025-07-30 14:00:40.125 | INFO | Here are the available devices, copy to Alas.Emulator.Serial to use it or set         
+Alas.Emulator.Serial="auto"                                                                                            
+2025-07-30 14:00:40.127 | INFO | 127.0.0.1:16384                                                                       
+2025-07-30 14:00:40.132 | INFO | already connected to 127.0.0.1:16384                                                  
+2025-07-30 14:00:40.133 | INFO | [AdbDevice] AdbDevice(serial=127.0.0.1:16384)                                         
+2025-07-30 14:00:40.135 | INFO | [Server] CN-Official                                                                  
+2025-07-30 14:00:40.136 | INFO | [PackageName] com.tencent.KiHan                                                       
+2025-07-30 14:00:40.137 | INFO | [Lang] auto                                                                           
+2025-07-30 14:00:40.151 | INFO | [nemud.player_version]                                                                
+2025-07-30 14:00:40.153 | INFO | [customer.app_keptlive] false                                                         
+2025-07-30 14:00:40.155 | INFO | NemuIpcImpl init, nemu_folder=E:\MuMu Player 12, ipc_dll=E:\MuMu Player               
+12\shell\sdk\external_renderer_ipc.dll, instance_id=0, display_id=0                                                    
+2025-07-30 14:00:40.158 | INFO | [nemu_ipc_available] True                                                             
+2025-07-30 14:00:40.159 | INFO | Screenshot interval set to 0.2s                                                       
+2025-07-30 14:00:40.173 | INFO | [Screen_size] 1280x720                                                                
+2025-07-30 14:00:40.175 | INFO | Swipe (   0,  322) -> (1280,  314)                                                    
+2025-07-30 14:00:40.178 | INFO | <<< MAATOUCH INIT >>>                                                                 
+2025-07-30 14:00:40.193 | INFO | [Device Orientation] 1 (HOME key on the right)                                        
+2025-07-30 14:00:40.366 | INFO | ^ 10 1280 720 255                                                                     
+2025-07-30 14:00:40.367 | INFO | $ 255                                                                                 
+2025-07-30 14:00:40.368 | INFO | MaaTouch stream connected                                                             
+2025-07-30 14:00:40.369 | INFO | max_contact: 10; max_x: 1280; max_y: 720; max_pressure: 255                           
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+                                                         START                                                         
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+2025-07-30 14:01:18.382 | INFO | [Lang] cn                                                                             
+2025-07-30 14:01:18.384 | INFO | Bind task ['Alas']                                                                    
+2025-07-30 14:01:18.734 | INFO | [Lang] cn                                                                             
+2025-07-30 14:01:18.736 | INFO | Bind task ['Alas']                                                                    
+═══════════════════════════════════════════════════════ DEVICE ════════════════════════════════════════════════════════
+2025-07-30 14:01:18.738 | INFO | DEVICE                                                                                
+2025-07-30 14:01:18.742 | INFO | [AdbBinary]                                                                           
+C:/Users/liuzy/Desktop/NarutoScript/toolkit/Lib/site-packages/adbutils/binaries/adb.exe                                
+2025-07-30 14:01:18.744 | INFO | [AdbClient] AdbClient(127.0.0.1, 5037)                                                
+2025-07-30 14:01:18.745 | INFO | <<< DETECT DEVICE >>>                                                                 
+2025-07-30 14:01:18.746 | INFO | Here are the available devices, copy to Alas.Emulator.Serial to use it or set         
+Alas.Emulator.Serial="auto"                                                                                            
+2025-07-30 14:01:18.750 | INFO | 127.0.0.1:16384                                                                       
+2025-07-30 14:01:18.753 | INFO | already connected to 127.0.0.1:16384                                                  
+2025-07-30 14:01:18.754 | INFO | [AdbDevice] AdbDevice(serial=127.0.0.1:16384)                                         
+2025-07-30 14:01:18.756 | INFO | [Server] CN-Official                                                                  
+2025-07-30 14:01:18.757 | INFO | [PackageName] com.tencent.KiHan                                                       
+2025-07-30 14:01:18.759 | INFO | [Lang] auto                                                                           
+2025-07-30 14:01:18.768 | INFO | [nemud.player_version]                                                                
+2025-07-30 14:01:18.771 | INFO | [customer.app_keptlive] false                                                         
+2025-07-30 14:01:18.773 | INFO | NemuIpcImpl init, nemu_folder=E:\MuMu Player 12, ipc_dll=E:\MuMu Player               
+12\shell\sdk\external_renderer_ipc.dll, instance_id=0, display_id=0                                                    
+2025-07-30 14:01:18.776 | INFO | [nemu_ipc_available] True                                                             
+2025-07-30 14:01:18.778 | INFO | Screenshot interval set to 0.2s                                                       
+2025-07-30 14:01:18.791 | INFO | [Screen_size] 1280x720                                                                
+2025-07-30 14:01:18.794 | INFO | Swipe (   0,  322) -> (1280,  314)                                                    
+2025-07-30 14:01:18.798 | INFO | <<< MAATOUCH INIT >>>                                                                 
+2025-07-30 14:01:18.811 | INFO | [Device Orientation] 1 (HOME key on the right)                                        
+2025-07-30 14:01:19.011 | INFO | ^ 10 1280 720 255                                                                     
+2025-07-30 14:01:19.013 | INFO | $ 255                                                                                 
+2025-07-30 14:01:19.014 | INFO | MaaTouch stream connected                                                             
+2025-07-30 14:01:19.016 | INFO | max_contact: 10; max_x: 1280; max_y: 720; max_pressure: 255                           
+2025-07-30 14:01:19.978 | INFO | Click ( 555,  443) @ MISSION_RED_DOT                                                  
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+                                                         START                                                         
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+2025-07-30 14:01:27.167 | INFO | [Lang] cn                                                                             
+2025-07-30 14:01:27.169 | INFO | Bind task ['Alas']                                                                    
+2025-07-30 14:01:27.506 | INFO | [Lang] cn                                                                             
+2025-07-30 14:01:27.508 | INFO | Bind task ['Alas']                                                                    
+═══════════════════════════════════════════════════════ DEVICE ════════════════════════════════════════════════════════
+2025-07-30 14:01:27.511 | INFO | DEVICE                                                                                
+2025-07-30 14:01:27.513 | INFO | [AdbBinary]                                                                           
+C:/Users/liuzy/Desktop/NarutoScript/toolkit/Lib/site-packages/adbutils/binaries/adb.exe                                
+2025-07-30 14:01:27.515 | INFO | [AdbClient] AdbClient(127.0.0.1, 5037)                                                
+2025-07-30 14:01:27.516 | INFO | <<< DETECT DEVICE >>>                                                                 
+2025-07-30 14:01:27.519 | INFO | Here are the available devices, copy to Alas.Emulator.Serial to use it or set         
+Alas.Emulator.Serial="auto"                                                                                            
+2025-07-30 14:01:27.521 | INFO | 127.0.0.1:16384                                                                       
+2025-07-30 14:01:27.527 | INFO | already connected to 127.0.0.1:16384                                                  
+2025-07-30 14:01:27.529 | INFO | [AdbDevice] AdbDevice(serial=127.0.0.1:16384)                                         
+2025-07-30 14:01:27.529 | INFO | [Server] CN-Official                                                                  
+2025-07-30 14:01:27.530 | INFO | [PackageName] com.tencent.KiHan                                                       
+2025-07-30 14:01:27.532 | INFO | [Lang] auto                                                                           
+2025-07-30 14:01:27.541 | INFO | [nemud.player_version]                                                                
+2025-07-30 14:01:27.542 | INFO | [customer.app_keptlive] false                                                         
+2025-07-30 14:01:27.545 | INFO | NemuIpcImpl init, nemu_folder=E:\MuMu Player 12, ipc_dll=E:\MuMu Player               
+12\shell\sdk\external_renderer_ipc.dll, instance_id=0, display_id=0                                                    
+2025-07-30 14:01:27.547 | INFO | [nemu_ipc_available] True                                                             
+2025-07-30 14:01:27.548 | INFO | Screenshot interval set to 0.2s                                                       
+2025-07-30 14:01:27.561 | INFO | [Screen_size] 1280x720                                                                
+2025-07-30 14:01:27.564 | INFO | Swipe (   0,  322) -> (1280,  314)                                                    
+2025-07-30 14:01:27.566 | INFO | <<< MAATOUCH INIT >>>                                                                 
+2025-07-30 14:01:27.582 | INFO | [Device Orientation] 1 (HOME key on the right)                                        
+2025-07-30 14:01:27.772 | INFO | ^ 10 1280 720 255                                                                     
+2025-07-30 14:01:27.773 | INFO | $ 255                                                                                 
+2025-07-30 14:01:27.774 | INFO | MaaTouch stream connected                                                             
+2025-07-30 14:01:27.775 | INFO | max_contact: 10; max_x: 1280; max_y: 720; max_pressure: 255                           
+2025-07-30 14:01:28.873 | INFO | Click ( 455,  438) @ MISSION_RED_DOT                                                  
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+                                                         START                                                         
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+2025-07-30 20:46:51.352 | INFO | [Lang] cn                                                                             
+2025-07-30 20:46:51.356 | INFO | Bind task ['Alas']                                                                    
+2025-07-30 20:46:51.929 | INFO | [Lang] cn                                                                             
+2025-07-30 20:46:51.932 | INFO | Bind task ['Alas']                                                                    
+═══════════════════════════════════════════════════════ DEVICE ════════════════════════════════════════════════════════
+2025-07-30 20:46:51.935 | INFO | DEVICE                                                                                
+2025-07-30 20:46:51.941 | INFO | [AdbBinary]                                                                           
+C:/Users/liuzy/Desktop/NarutoScript/toolkit/Lib/site-packages/adbutils/binaries/adb.exe                                
+2025-07-30 20:46:51.943 | INFO | [AdbClient] AdbClient(127.0.0.1, 5037)                                                
+2025-07-30 20:46:51.944 | INFO | <<< DETECT DEVICE >>>                                                                 
+2025-07-30 20:46:51.946 | INFO | Here are the available devices, copy to Alas.Emulator.Serial to use it or set         
+Alas.Emulator.Serial="auto"                                                                                            
+2025-07-30 20:46:51.949 | INFO | No available devices                                                                  
+2025-07-30 20:46:51.961 | INFO | connected to 127.0.0.1:16384                                                          
+2025-07-30 20:46:51.962 | INFO | [AdbDevice] AdbDevice(serial=127.0.0.1:16384)                                         
+2025-07-30 20:46:51.963 | INFO | [Server] CN-Official                                                                  
+2025-07-30 20:46:51.965 | INFO | [PackageName] com.tencent.KiHan                                                       
+2025-07-30 20:46:51.966 | INFO | [Lang] auto                                                                           
+2025-07-30 20:46:52.526 | INFO | [nemud.player_version]                                                                
+2025-07-30 20:46:52.529 | INFO | [customer.app_keptlive] false                                                         
+2025-07-30 20:46:52.534 | INFO | NemuIpcImpl init, nemu_folder=E:\MuMu Player 12, ipc_dll=E:\MuMu Player               
+12\shell\sdk\external_renderer_ipc.dll, instance_id=0, display_id=0                                                    
+2025-07-30 20:46:52.548 | INFO | [nemu_ipc_available] True                                                             
+2025-07-30 20:46:52.549 | INFO | Screenshot interval set to 0.2s                                                       
+2025-07-30 20:46:52.574 | INFO | [Screen_size] 1280x720                                                                
+2025-07-30 20:46:52.578 | INFO | Swipe (   0,  322) -> (1280,  314)                                                    
+2025-07-30 20:46:52.586 | INFO | <<< MAATOUCH INIT >>>                                                                 
+2025-07-30 20:46:52.635 | INFO | [Device Orientation] 1 (HOME key on the right)                                        
+2025-07-30 20:46:53.571 | INFO | ^ 10 1280 720 255                                                                     
+2025-07-30 20:46:53.573 | INFO | $ 255                                                                                 
+2025-07-30 20:46:53.574 | INFO | MaaTouch stream connected                                                             
+2025-07-30 20:46:53.575 | INFO | max_contact: 10; max_x: 1280; max_y: 720; max_pressure: 255                           
+2025-07-30 20:46:54.798 | INFO | Click ( 578,  425) @ MISSION_RED_DOT                                                  
