@@ -467,7 +467,7 @@ pre.rich-traceback-code {
 }
 
 #pywebio-scope-log {
-    display: none;
+
     line-height: 1.2;
     font-size: 0.85rem;
     font-family: Menlo, consolas, DejaVu Sans Mono, Courier New, monospace;
